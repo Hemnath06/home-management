@@ -1,0 +1,2448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Harmony — Luxury Living & Organization Sanctuary</title>
+  
+  <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons for minimalist luxury line icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <!-- Tailwind CSS CDN for utility grid and layout -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#F8F5EF',
+            cardWhite: '#FFFFFF',
+            forest: '#183D35',
+            'forest-dark': '#102B25',
+            'forest-light': '#215247',
+            sage: '#A6B7A1',
+            'sage-light': '#E9EFE7',
+            champagne: '#D9C5A5',
+            'champagne-light': '#F4EFE6',
+            charcoal: '#2D312E',
+            'charcoal-muted': '#6B726C',
+            'charcoal-light': '#9BA29C',
+            gold: '#C5A059',
+            'gold-hover': '#B38E46'
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          },
+          boxShadow: {
+            'lux-sm': '0 4px 20px -2px rgba(24, 61, 53, 0.05)',
+            'lux': '0 12px 35px -4px rgba(24, 61, 53, 0.07), 0 4px 12px -2px rgba(24, 61, 53, 0.03)',
+            'lux-hover': '0 22px 45px -8px rgba(24, 61, 53, 0.12), 0 8px 20px -4px rgba(24, 61, 53, 0.05)',
+            'drawer': '-10px 0 40px rgba(16, 43, 37, 0.15)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Luxury Styling & Micro-interactions */
+    :root {
+      --bg-ivory: #F8F5EF;
+      --forest: #183D35;
+      --sage: #A6B7A1;
+      --champagne: #D9C5A5;
+      --gold: #C5A059;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-ivory);
+      color: #2D312E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1EDE4;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C4CFC0;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #A6B7A1;
+    }
+
+    /* Luxury Gold Border Glow */
+    .gold-border-glow:hover {
+      border-color: rgba(197, 160, 89, 0.6);
+      box-shadow: 0 10px 30px -5px rgba(197, 160, 89, 0.2);
+    }
+
+    /* Smooth Transitions */
+    .transition-lux {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Subtle Architectural Floor Planner Grid */
+    .planner-canvas {
+      background-color: #FDFBF8;
+      background-image: 
+        linear-gradient(to right, rgba(166, 183, 161, 0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(166, 183, 161, 0.15) 1px, transparent 1px);
+      background-size: 24px 24px;
+      position: relative;
+    }
+
+    /* Before / After Slider Styling */
+    .split-image-container {
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+    }
+    .split-image-before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .split-slider-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: #C5A059;
+      transform: translateX(-50%);
+      z-index: 3;
+      cursor: ew-resize;
+    }
+
+    /* Custom Checkbox Luxury Styling */
+    .lux-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid #A6B7A1;
+      border-radius: 6px;
+      outline: none;
+      background-color: #FFFFFF;
+      cursor: pointer;
+      display: inline-grid;
+      place-content: center;
+      transition: all 0.2s ease;
+    }
+    .lux-checkbox:checked {
+      background-color: #183D35;
+      border-color: #183D35;
+    }
+    .lux-checkbox:checked::before {
+      content: "";
+      width: 10px;
+      height: 6px;
+      border-left: 2px solid #FFFFFF;
+      border-bottom: 2px solid #FFFFFF;
+      transform: rotate(-45deg) translate(1px, -1px);
+    }
+
+    /* Subtle Glass effect */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex antialiased selection:bg-champagne selection:text-forest">
+
+  <!-- ==================== LUXURY SIDEBAR ==================== -->
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 bg-forest text-ivory flex flex-col justify-between transition-transform duration-300 ease-in-out md:translate-x-0 -translate-x-full border-r border-forest-light">
+    <!-- Brand / Header -->
+    <div class="px-7 pt-8 pb-6 border-b border-forest-light/60">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-champagne/20 border border-champagne/30 flex items-center justify-center text-champagne shadow-inner">
+            <i class="ph-bold ph-armchair text-2xl"></i>
+          </div>
+          <div>
+            <h1 class="font-serif text-2xl tracking-wide font-bold text-ivory">Home Harmony</h1>
+            <p class="text-[10px] uppercase tracking-widest text-champagne/90 font-medium">Luxury Sanctuary Suite</p>
+          </div>
+        </div>
+        <button id="closeSidebarBtn" class="md:hidden text-ivory/70 hover:text-ivory">
+          <i class="ph ph-x text-2xl"></i>
+        </button>
+      </div>
+      <div class="mt-5 px-3 py-2 rounded-lg bg-forest-dark/40 border border-champagne/15 flex items-center justify-between text-xs text-champagne">
+        <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Residence State</span>
+        <span class="font-serif italic font-medium">Estate Mode</span>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex-1 px-4 py-5 space-y-1.5 overflow-y-auto" id="mainNavigation">
+      <a href="#dashboard" data-section="dashboard" class="nav-item active flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-medium transition-lux bg-champagne/15 text-ivory border-l-4 border-champagne">
+        <i class="ph ph-squares-four text-xl text-champagne"></i>
+        <span>Dashboard & Overview</span>
+      </a>
+      <a href="#routines" data-section="routines" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-medium transition-lux text-ivory/75 hover:bg-forest-light/60 hover:text-ivory border-l-4 border-transparent">
+        <i class="ph ph-sparkle text-xl text-champagne/80"></i>
+        <span>Cleaning Routines</span>
+        <span class="ml-auto text-[11px] px-2 py-0.5 rounded-full bg-champagne/20 text-champagne font-semibold" id="routinesBadge">8 Due</span>
+      </a>
+      <a href="#planner" data-section="planner" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-medium transition-lux text-ivory/75 hover:bg-forest-light/60 hover:text-ivory border-l-4 border-transparent">
+        <i class="ph ph-compass-tool text-xl text-champagne/80"></i>
+        <span>Furniture Studio (2D)</span>
+      </a>
+      <a href="#inventory" data-section="inventory" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-medium transition-lux text-ivory/75 hover:bg-forest-light/60 hover:text-ivory border-l-4 border-transparent">
+        <i class="ph ph-archive-box text-xl text-champagne/80"></i>
+        <span>Inventory & Storage</span>
+      </a>
+      <a href="#shopping" data-section="shopping" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-medium transition-lux text-ivory/75 hover:bg-forest-light/60 hover:text-ivory border-l-4 border-transparent">
+        <i class="ph ph-tote text-xl text-champagne/80"></i>
+        <span>Supplies & Essentials</span>
+        <span class="ml-auto text-[11px] px-2 py-0.5 rounded-full bg-forest-dark text-champagne font-semibold" id="shoppingBadge">4</span>
+      </a>
+      <a href="#calendar" data-section="calendar" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-medium transition-lux text-ivory/75 hover:bg-forest-light/60 hover:text-ivory border-l-4 border-transparent">
+        <i class="ph ph-calendar-blank text-xl text-champagne/80"></i>
+        <span>Cleaning Calendar</span>
+      </a>
+      <a href="#progress" data-section="progress" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-medium transition-lux text-ivory/75 hover:bg-forest-light/60 hover:text-ivory border-l-4 border-transparent">
+        <i class="ph ph-chart-polar text-xl text-champagne/80"></i>
+        <span>Sanctuary Analytics</span>
+      </a>
+      <a href="#gallery" data-section="gallery" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-medium transition-lux text-ivory/75 hover:bg-forest-light/60 hover:text-ivory border-l-4 border-transparent">
+        <i class="ph ph-images-square text-xl text-champagne/80"></i>
+        <span>Before & After Studio</span>
+      </a>
+      <a href="#notes" data-section="notes" class="nav-item flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-medium transition-lux text-ivory/75 hover:bg-forest-light/60 hover:text-ivory border-l-4 border-transparent">
+        <i class="ph ph-notebook text-xl text-champagne/80"></i>
+        <span>Interior Notes & Ideas</span>
+      </a>
+    </nav>
+
+    <!-- Footer Profile / Estate status -->
+    <div class="p-4 border-t border-forest-light/50 bg-forest-dark/30">
+      <div class="flex items-center gap-3 p-2 rounded-xl bg-forest-light/40">
+        <div class="relative">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-forest-dark to-forest border-2 border-champagne flex items-center justify-center text-champagne font-serif text-lg font-bold shadow-inner">
+            H
+          </div>
+          <span class="absolute bottom-0 right-0 w-3 h-3 bg-gold border-2 border-forest rounded-full"></span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h4 class="text-sm font-semibold truncate text-ivory">Hemnath</h4>
+          <p class="text-[11px] text-champagne/70 truncate">Estate Proprietor • Penthouse</p>
+        </div>
+        <button onclick="resetApplicationData()" title="Reset to Defaults" class="text-champagne/60 hover:text-champagne p-1 rounded transition">
+          <i class="ph ph-arrows-counter-clockwise text-base"></i>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Overlay for Mobile Sidebar -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-forest-dark/60 backdrop-blur-sm z-30 hidden md:hidden"></div>
+
+  <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+  <main class="flex-1 md:ml-72 min-h-screen flex flex-col bg-ivory pb-20">
+    
+    <!-- Top Floating Header -->
+    <header class="sticky top-0 z-20 glass-card border-b border-champagne/30 px-6 lg:px-10 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <button id="openSidebarBtn" class="md:hidden text-forest p-2 rounded-lg hover:bg-champagne/20">
+          <i class="ph ph-list text-2xl"></i>
+        </button>
+        <div>
+          <span class="text-[11px] uppercase tracking-widest text-gold font-semibold">Couture Living Management</span>
+          <h2 id="topBarTitle" class="text-xl md:text-2xl font-serif font-bold text-forest leading-tight">Sanctuary Overview</h2>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <!-- Quick search trigger -->
+        <div class="relative hidden sm:block">
+          <i class="ph ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-charcoal-light"></i>
+          <input type="text" id="globalSearchInput" placeholder="Search tasks, inventory..." class="w-64 pl-9 pr-4 py-2 text-xs rounded-full bg-white border border-champagne/40 focus:outline-none focus:border-forest text-charcoal shadow-sm">
+        </div>
+
+        <!-- User Greeting & Initial Badge -->
+        <div class="hidden lg:flex items-center gap-2.5 pl-2 border-l border-champagne/40">
+          <div class="w-8 h-8 rounded-full bg-forest text-champagne border border-champagne font-serif text-sm font-bold flex items-center justify-center">
+            H
+          </div>
+          <span class="text-xs font-semibold text-forest">Hemnath</span>
+        </div>
+
+        <!-- Add room button -->
+        <button onclick="openAddRoomModal()" class="flex items-center gap-2 px-4 py-2 rounded-full bg-forest text-ivory text-xs font-semibold hover:bg-forest-dark transition-lux shadow-sm">
+          <i class="ph-bold ph-plus text-champagne"></i>
+          <span class="hidden sm:inline">Add Room</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- CONTENT SECTIONS -->
+    <div class="px-6 lg:px-10 py-8 max-w-7xl w-full mx-auto space-y-12">
+
+      <!-- ==================== SECTION 1: DASHBOARD ==================== -->
+      <section id="section-dashboard" class="space-y-10 active-section">
+        
+        <!-- Hero Banner: Luxury Living Space -->
+        <div class="relative rounded-3xl overflow-hidden shadow-lux group min-h-[360px] md:min-h-[420px] flex items-end">
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=85" 
+               alt="Luxury Penthouse Living Room" 
+               class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700"
+               onerror="this.src='https://placehold.co/1920x1080/183D35/F8F5EF?text=Architectural+Sanctuary'">
+          <div class="absolute inset-0 bg-gradient-to-t from-forest-dark/95 via-forest-dark/45 to-transparent"></div>
+          
+          <div class="relative z-10 p-8 md:p-12 w-full max-w-3xl text-ivory space-y-4">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-champagne/20 border border-champagne/40 text-xs font-serif italic text-champagne tracking-wider">
+              <i class="ph-fill ph-sparkle text-gold"></i> Estate Care Protocol & Perfection
+            </span>
+            <h1 class="text-3xl md:text-5xl font-serif font-bold text-ivory tracking-wide leading-tight">
+              Welcome back to your Sanctuary, Hemnath.
+            </h1>
+            <p class="text-sm md:text-base text-ivory/80 font-light max-w-xl leading-relaxed">
+              Curate every corner of your residence. Track bespoke cleaning rituals, preserve luxury furnishings, and orchestrate interior balance.
+            </p>
+            <div class="pt-2 flex flex-wrap items-center gap-4">
+              <button onclick="scrollToRooms()" class="px-6 py-3 rounded-full bg-champagne text-forest-dark text-xs uppercase tracking-widest font-bold hover:bg-white transition-lux shadow-lux flex items-center gap-2">
+                <span>Explore My Home</span>
+                <i class="ph-bold ph-arrow-down"></i>
+              </button>
+              <button onclick="switchSection('routines')" class="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-ivory text-xs uppercase tracking-widest font-semibold backdrop-blur-md transition-lux border border-white/25">
+                Daily Rituals
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Summary Stat Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Stat 1: Total Rooms -->
+          <div class="bg-cardWhite p-6 rounded-2xl shadow-lux border border-champagne/30 flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-wider text-charcoal-muted font-medium">Designated Spaces</p>
+              <h3 class="text-3xl font-serif font-bold text-forest mt-1" id="statTotalRooms">8</h3>
+              <p class="text-[11px] text-sage font-medium mt-1">Across 2 Levels</p>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-champagne-light flex items-center justify-center text-forest text-2xl">
+              <i class="ph ph-door"></i>
+            </div>
+          </div>
+
+          <!-- Stat 2: Tasks Completed Today -->
+          <div class="bg-cardWhite p-6 rounded-2xl shadow-lux border border-champagne/30 flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-wider text-charcoal-muted font-medium">Completed Today</p>
+              <h3 class="text-3xl font-serif font-bold text-forest mt-1" id="statCompletedTasks">14</h3>
+              <p class="text-[11px] text-emerald-700 font-medium mt-1 flex items-center gap-1">
+                <i class="ph-bold ph-trend-up"></i> +4 from yesterday
+              </p>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-sage-light flex items-center justify-center text-forest text-2xl">
+              <i class="ph ph-check-circle"></i>
+            </div>
+          </div>
+
+          <!-- Stat 3: Tasks Remaining -->
+          <div class="bg-cardWhite p-6 rounded-2xl shadow-lux border border-champagne/30 flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-wider text-charcoal-muted font-medium">Tasks Remaining</p>
+              <h3 class="text-3xl font-serif font-bold text-forest mt-1" id="statRemainingTasks">6</h3>
+              <p class="text-[11px] text-gold font-medium mt-1">2 marked urgent priority</p>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-gold text-2xl">
+              <i class="ph ph-clock-countdown"></i>
+            </div>
+          </div>
+
+          <!-- Stat 4: Overall Sanctuary Progress (with circular progress ring) -->
+          <div class="bg-cardWhite p-6 rounded-2xl shadow-lux border border-champagne/30 flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-wider text-charcoal-muted font-medium">Estate Harmony</p>
+              <h3 class="text-3xl font-serif font-bold text-forest mt-1" id="statProgressPercent">78%</h3>
+              <p class="text-[11px] text-forest font-medium mt-1">Pristine condition</p>
+            </div>
+            <!-- Progress Ring -->
+            <div class="relative w-14 h-14">
+              <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                <path class="text-champagne/40" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path id="svgProgressCircle" class="text-forest transition-all duration-700 ease-out" stroke-dasharray="78, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center text-gold">
+                <i class="ph-fill ph-shield-check text-base"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Room Showcase Grid -->
+        <div id="roomsShowcaseContainer" class="space-y-6 pt-4">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-champagne/40 pb-4">
+            <div>
+              <span class="text-xs font-semibold text-gold tracking-widest uppercase">Spaces & Curated Chambers</span>
+              <h3 class="text-2xl md:text-3xl font-serif font-bold text-forest mt-0.5">Residence Chambers</h3>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="filterRooms('all')" class="room-filter active px-3.5 py-1.5 rounded-full text-xs font-medium bg-forest text-ivory">All (8)</button>
+              <button onclick="filterRooms('incomplete')" class="room-filter px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-charcoal border border-champagne/40 hover:bg-champagne/20">Needs Polish</button>
+              <button onclick="filterRooms('complete')" class="room-filter px-3.5 py-1.5 rounded-full text-xs font-medium bg-white text-charcoal border border-champagne/40 hover:bg-champagne/20">Impeccable</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Grid of Room Cards -->
+          <div id="roomsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 2: CLEANING ROUTINES ==================== -->
+      <section id="section-routines" class="space-y-8 hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-champagne/40 pb-5">
+          <div>
+            <span class="text-xs font-semibold text-gold tracking-widest uppercase">Purity Protocols</span>
+            <h2 class="text-3xl font-serif font-bold text-forest mt-1">Cleaning & Maintenance Routines</h2>
+            <p class="text-xs text-charcoal-muted mt-1">Rhythms structured by time horizon to preserve fine finishes and maintain serenity.</p>
+          </div>
+          <!-- Frequency Toggle -->
+          <div class="flex items-center p-1.5 bg-champagne-light rounded-xl border border-champagne/40 self-start md:self-auto">
+            <button onclick="setRoutineTab('daily')" id="tabDaily" class="px-4 py-2 rounded-lg text-xs font-semibold bg-forest text-ivory shadow-sm transition-lux">Daily (7)</button>
+            <button onclick="setRoutineTab('weekly')" id="tabWeekly" class="px-4 py-2 rounded-lg text-xs font-semibold text-forest hover:bg-white/60 transition-lux">Weekly (12)</button>
+            <button onclick="setRoutineTab('monthly')" id="tabMonthly" class="px-4 py-2 rounded-lg text-xs font-semibold text-forest hover:bg-white/60 transition-lux">Monthly (6)</button>
+          </div>
+        </div>
+
+        <!-- Routine Stats & Quick Add Task -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 space-y-4">
+            <div class="flex items-center justify-between bg-cardWhite p-4 rounded-xl border border-champagne/40">
+              <div class="flex items-center gap-3">
+                <span class="p-2 rounded-lg bg-champagne-light text-forest"><i class="ph-bold ph-flame text-xl text-gold"></i></span>
+                <div>
+                  <h4 class="text-sm font-semibold text-forest">Ritual Cadence: 12-Day Streak</h4>
+                  <p class="text-xs text-charcoal-muted">All primary morning rituals completed consecutively.</p>
+                </div>
+              </div>
+              <span class="text-xs font-serif italic text-forest font-bold bg-sage-light px-3 py-1 rounded-full">Optimal Level</span>
+            </div>
+
+            <!-- Task List Container -->
+            <div id="routineTasksList" class="space-y-3">
+              <!-- Dynamically Rendered Routine Tasks -->
+            </div>
+
+            <!-- Add Task In-line Form -->
+            <form id="addRoutineForm" onsubmit="handleRoutineSubmit(event)" class="bg-cardWhite p-4 rounded-xl border border-champagne/40 flex items-center gap-3">
+              <input type="text" id="newRoutineTitle" placeholder="Add custom ritual (e.g. Polish brass hardware)..." class="flex-1 bg-ivory/50 border border-champagne/50 px-4 py-2 rounded-lg text-xs focus:outline-none focus:border-forest" required>
+              <select id="newRoutineRoom" class="bg-ivory/50 border border-champagne/50 px-3 py-2 rounded-lg text-xs text-charcoal focus:outline-none focus:border-forest">
+                <option value="Grand Living Hall">Living Hall</option>
+                <option value="Master Bedroom">Master Suite</option>
+                <option value="Chef's Kitchen">Kitchen</option>
+                <option value="En-Suite Bath">En-Suite</option>
+                <option value="General Residence">General Residence</option>
+              </select>
+              <button type="submit" class="px-4 py-2 bg-forest hover:bg-forest-dark text-ivory text-xs font-semibold rounded-lg flex items-center gap-1.5 transition-lux">
+                <i class="ph-bold ph-plus"></i> Add
+              </button>
+            </form>
+          </div>
+
+          <!-- Routine Guidelines / Luxury Cleaning Tips Card -->
+          <div class="bg-cardWhite p-6 rounded-2xl border border-champagne/40 shadow-lux space-y-5">
+            <div class="flex items-center gap-3 border-b border-champagne/30 pb-3">
+              <div class="w-8 h-8 rounded-lg bg-champagne/20 text-gold flex items-center justify-center">
+                <i class="ph ph-feather text-lg"></i>
+              </div>
+              <h4 class="font-serif text-lg font-bold text-forest">Artisan Material Care</h4>
+            </div>
+            
+            <ul class="text-xs text-charcoal-muted space-y-3">
+              <li class="flex items-start gap-2.5">
+                <i class="ph-bold ph-check text-forest mt-0.5"></i>
+                <span><strong>Carrara & Calacatta Marble:</strong> Never use acidic solutions. Clean only with neutral pH castile soap and micro-weave cotton.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="ph-bold ph-check text-forest mt-0.5"></i>
+                <span><strong>Smoked Oak Flooring:</strong> Vacuum using felt-head attachment only; damp mop with organic beeswax emulsion every 3 weeks.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="ph-bold ph-check text-forest mt-0.5"></i>
+                <span><strong>Unlacquered Brass Fixtures:</strong> Wipe with chamois cloth dry; celebrate natural patina development without harsh polishes.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="ph-bold ph-check text-forest mt-0.5"></i>
+                <span><strong>Belgian Linen Drapes:</strong> Steam monthly with distilled water to release dust without dampening fibers.</span>
+              </li>
+            </ul>
+
+            <div class="p-3 bg-champagne-light rounded-xl border border-champagne/40 text-[11px] text-forest">
+              <p class="font-serif italic">"Order is the foundation upon which luxury, peace of mind, and creativity thrive."</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 3: FURNITURE PLANNER ==================== -->
+      <section id="section-planner" class="space-y-6 hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-champagne/40 pb-5">
+          <div>
+            <span class="text-xs font-semibold text-gold tracking-widest uppercase">Architectural Spatial Balance</span>
+            <h2 class="text-3xl font-serif font-bold text-forest mt-1">2D Furniture Arrangement Studio</h2>
+            <p class="text-xs text-charcoal-muted mt-1">Drag, arrange, and rotate luxury furniture silhouettes to test room layouts before moving heavy pieces.</p>
+          </div>
+          <!-- Planner Actions -->
+          <div class="flex items-center gap-2">
+            <button onclick="addPlannerFurniture('sofa')" class="px-3.5 py-2 bg-white border border-champagne/50 hover:bg-champagne/20 rounded-xl text-xs font-medium text-forest flex items-center gap-1.5 transition-lux shadow-sm">
+              <i class="ph-bold ph-plus text-gold"></i> Sofa
+            </button>
+            <button onclick="addPlannerFurniture('table')" class="px-3.5 py-2 bg-white border border-champagne/50 hover:bg-champagne/20 rounded-xl text-xs font-medium text-forest flex items-center gap-1.5 transition-lux shadow-sm">
+              <i class="ph-bold ph-plus text-gold"></i> Table
+            </button>
+            <button onclick="addPlannerFurniture('bed')" class="px-3.5 py-2 bg-white border border-champagne/50 hover:bg-champagne/20 rounded-xl text-xs font-medium text-forest flex items-center gap-1.5 transition-lux shadow-sm">
+              <i class="ph-bold ph-plus text-gold"></i> Bed
+            </button>
+            <button onclick="addPlannerFurniture('credenza')" class="px-3.5 py-2 bg-white border border-champagne/50 hover:bg-champagne/20 rounded-xl text-xs font-medium text-forest flex items-center gap-1.5 transition-lux shadow-sm">
+              <i class="ph-bold ph-plus text-gold"></i> Credenza
+            </button>
+            <button onclick="resetPlannerLayout()" class="px-3.5 py-2 bg-champagne-light hover:bg-champagne/30 text-forest rounded-xl text-xs font-medium flex items-center gap-1.5 transition-lux">
+              <i class="ph ph-arrow-counter-clockwise"></i> Reset Layout
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <!-- Main Canvas Area -->
+          <div class="lg:col-span-3 bg-white p-4 rounded-3xl border border-champagne/40 shadow-lux">
+            <div class="flex items-center justify-between text-xs text-charcoal-muted px-2 pb-2">
+              <span class="flex items-center gap-2"><i class="ph ph-grid-four text-sage"></i> 1 Grid Unit = 1.0 Foot Scale</span>
+              <span id="selectedItemPrompt" class="text-gold font-medium">Click any item to rotate (90°) or remove</span>
+            </div>
+
+            <div id="plannerCanvas" class="planner-canvas w-full h-[520px] rounded-2xl border-2 border-dashed border-champagne/60 overflow-hidden relative select-none">
+              <!-- Draggable Furniture Elements populated by JS -->
+            </div>
+          </div>
+
+          <!-- Spatial Palette / Selected Specs -->
+          <div class="bg-cardWhite p-6 rounded-3xl border border-champagne/40 shadow-lux space-y-6">
+            <h4 class="font-serif text-lg font-bold text-forest border-b border-champagne/30 pb-2">Spatial Palette</h4>
+            
+            <div class="space-y-3">
+              <p class="text-xs text-charcoal-muted">Click to add premium elements to canvas:</p>
+              
+              <div class="grid grid-cols-2 gap-2 text-xs">
+                <button onclick="addPlannerFurniture('sofa')" class="p-2.5 rounded-xl border border-champagne/40 hover:border-forest text-left bg-ivory/60 hover:bg-white transition-lux">
+                  <span class="font-semibold text-forest block">Velvet Sofa</span>
+                  <span class="text-[10px] text-charcoal-light">84" x 36" • Bouclé</span>
+                </button>
+                <button onclick="addPlannerFurniture('armchair')" class="p-2.5 rounded-xl border border-champagne/40 hover:border-forest text-left bg-ivory/60 hover:bg-white transition-lux">
+                  <span class="font-semibold text-forest block">Lounge Chair</span>
+                  <span class="text-[10px] text-charcoal-light">32" x 32" • Leather</span>
+                </button>
+                <button onclick="addPlannerFurniture('table')" class="p-2.5 rounded-xl border border-champagne/40 hover:border-forest text-left bg-ivory/60 hover:bg-white transition-lux">
+                  <span class="font-semibold text-forest block">Coffee Table</span>
+                  <span class="text-[10px] text-charcoal-light">48" x 24" • Travertine</span>
+                </button>
+                <button onclick="addPlannerFurniture('dining')" class="p-2.5 rounded-xl border border-champagne/40 hover:border-forest text-left bg-ivory/60 hover:bg-white transition-lux">
+                  <span class="font-semibold text-forest block">Dining Table</span>
+                  <span class="text-[10px] text-charcoal-light">96" x 42" • Walnut</span>
+                </button>
+                <button onclick="addPlannerFurniture('bed')" class="p-2.5 rounded-xl border border-champagne/40 hover:border-forest text-left bg-ivory/60 hover:bg-white transition-lux">
+                  <span class="font-semibold text-forest block">King Bed</span>
+                  <span class="text-[10px] text-charcoal-light">80" x 84" • Upholstered</span>
+                </button>
+                <button onclick="addPlannerFurniture('plant')" class="p-2.5 rounded-xl border border-champagne/40 hover:border-forest text-left bg-ivory/60 hover:bg-white transition-lux">
+                  <span class="font-semibold text-forest block">Olive Tree</span>
+                  <span class="text-[10px] text-charcoal-light">Terra-Cotta Urn</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Dimensions & Tips -->
+            <div class="pt-4 border-t border-champagne/30 space-y-2 text-xs text-charcoal-muted">
+              <h5 class="font-semibold text-forest">Architectural Advice:</h5>
+              <p>Maintain at least <strong>18 inches</strong> between your coffee table and sofa for fluid movement.</p>
+              <p>Keep primary thoroughfares cleared with a <strong>36-inch walk path</strong>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 4: INVENTORY & STORAGE ==================== -->
+      <section id="section-inventory" class="space-y-6 hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-champagne/40 pb-5">
+          <div>
+            <span class="text-xs font-semibold text-gold tracking-widest uppercase">Archive & Preservation</span>
+            <h2 class="text-3xl font-serif font-bold text-forest mt-1">Household Inventory & Vault Storage</h2>
+            <p class="text-xs text-charcoal-muted mt-1">Categorized tracking of luxury valuables, linens, heirloom porcelain, and archival storage bins.</p>
+          </div>
+          <!-- Add Item Action -->
+          <button onclick="openAddInventoryModal()" class="px-5 py-2.5 bg-forest hover:bg-forest-dark text-ivory rounded-full text-xs font-semibold flex items-center gap-2 transition-lux shadow-sm">
+            <i class="ph-bold ph-plus text-champagne"></i> Catalog New Asset
+          </button>
+        </div>
+
+        <!-- Filter bar -->
+        <div class="bg-cardWhite p-4 rounded-2xl border border-champagne/40 shadow-lux flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <div class="relative flex-1 sm:w-64">
+              <i class="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-charcoal-light"></i>
+              <input type="text" id="inventorySearch" oninput="renderInventory()" placeholder="Filter items by name or vault..." class="w-full pl-9 pr-3 py-1.5 rounded-lg border border-champagne/50 text-xs bg-ivory/40 focus:outline-none focus:border-forest">
+            </div>
+            <select id="inventoryCategoryFilter" onchange="renderInventory()" class="bg-ivory/40 border border-champagne/50 px-3 py-1.5 rounded-lg text-xs text-charcoal focus:outline-none focus:border-forest">
+              <option value="all">All Categories</option>
+              <option value="Fine Linens">Fine Linens</option>
+              <option value="Tableware & Crystal">Tableware & Crystal</option>
+              <option value="Heirloom Decor">Heirloom Decor</option>
+              <option value="Care Equipment">Care Equipment</option>
+              <option value="Wardrobe Vault">Wardrobe Vault</option>
+            </select>
+          </div>
+          <span id="inventoryCount" class="text-xs font-medium text-charcoal-muted">Showing 8 cataloged items</span>
+        </div>
+
+        <!-- Inventory Table Card -->
+        <div class="bg-cardWhite rounded-2xl border border-champagne/40 shadow-lux overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-champagne-light/50 border-b border-champagne/30 text-charcoal font-serif text-sm">
+                <tr>
+                  <th class="py-3.5 px-6 font-semibold">Item & Description</th>
+                  <th class="py-3.5 px-6 font-semibold">Location / Vault</th>
+                  <th class="py-3.5 px-6 font-semibold">Quantity</th>
+                  <th class="py-3.5 px-6 font-semibold">Condition</th>
+                  <th class="py-3.5 px-6 font-semibold">Category</th>
+                  <th class="py-3.5 px-6 font-semibold text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryTableBody" class="divide-y divide-champagne/20">
+                <!-- Dynamically Rendered Inventory -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 5: SHOPPING & SUPPLIES ==================== -->
+      <section id="section-shopping" class="space-y-6 hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-champagne/40 pb-5">
+          <div>
+            <span class="text-xs font-semibold text-gold tracking-widest uppercase">Provisions & Restock</span>
+            <h2 class="text-3xl font-serif font-bold text-forest mt-1">Cleaning Provisions & Home Essentials</h2>
+            <p class="text-xs text-charcoal-muted mt-1">Maintain artisanal cleaning emulsions, French milled soaps, and high-efficiency filters.</p>
+          </div>
+          <button onclick="clearCompletedShopping()" class="px-4 py-2 border border-champagne/50 hover:bg-champagne/20 text-forest rounded-full text-xs font-medium transition-lux">
+            Clear Purchased
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Shopping Items List -->
+          <div class="lg:col-span-2 space-y-4">
+            <div id="shoppingListContainer" class="space-y-2.5">
+              <!-- Dynamically populated shopping list -->
+            </div>
+
+            <!-- Quick Add Form -->
+            <form onsubmit="handleShoppingSubmit(event)" class="bg-cardWhite p-4 rounded-2xl border border-champagne/40 shadow-lux flex flex-wrap sm:flex-nowrap gap-3 items-center">
+              <input type="text" id="newShopItem" placeholder="Add provision (e.g., Diptyque Lavender Surface Cleaner)..." class="flex-1 bg-ivory/50 border border-champagne/50 px-4 py-2 rounded-lg text-xs focus:outline-none focus:border-forest" required>
+              <select id="newShopCategory" class="bg-ivory/50 border border-champagne/50 px-3 py-2 rounded-lg text-xs text-charcoal focus:outline-none focus:border-forest">
+                <option value="Aromatics & Soap">Aromatics & Soap</option>
+                <option value="Polishing & Care">Polishing & Care</option>
+                <option value="Linens & Paper">Linens & Paper</option>
+                <option value="Appliance Filters">Appliance Filters</option>
+              </select>
+              <button type="submit" class="px-5 py-2 bg-forest hover:bg-forest-dark text-ivory text-xs font-semibold rounded-lg flex items-center gap-1.5 transition-lux whitespace-nowrap">
+                <i class="ph-bold ph-plus"></i> Add Supply
+              </button>
+            </form>
+          </div>
+
+          <!-- Preferred Vendors / Purveyors -->
+          <div class="bg-cardWhite p-6 rounded-2xl border border-champagne/40 shadow-lux space-y-4">
+            <h4 class="font-serif text-lg font-bold text-forest border-b border-champagne/30 pb-2">Approved Purveyors</h4>
+            
+            <div class="space-y-3 text-xs">
+              <div class="p-3 rounded-xl bg-ivory border border-champagne/30 flex items-center justify-between">
+                <div>
+                  <span class="font-semibold text-forest block">Murchison-Hume</span>
+                  <span class="text-charcoal-muted">Natural eco-luxury surface cleaners</span>
+                </div>
+                <span class="text-gold text-sm"><i class="ph ph-arrow-up-right"></i></span>
+              </div>
+              <div class="p-3 rounded-xl bg-ivory border border-champagne/30 flex items-center justify-between">
+                <div>
+                  <span class="font-semibold text-forest block">The Laundress Heritage</span>
+                  <span class="text-charcoal-muted">Cashmere & fine wool detergents</span>
+                </div>
+                <span class="text-gold text-sm"><i class="ph ph-arrow-up-right"></i></span>
+              </div>
+              <div class="p-3 rounded-xl bg-ivory border border-champagne/30 flex items-center justify-between">
+                <div>
+                  <span class="font-semibold text-forest block">Frette Linen Preserves</span>
+                  <span class="text-charcoal-muted">Egyptian percale laundering tonic</span>
+                </div>
+                <span class="text-gold text-sm"><i class="ph ph-arrow-up-right"></i></span>
+              </div>
+            </div>
+
+            <div class="p-3 bg-sage-light/60 rounded-xl text-forest text-xs flex items-center gap-2">
+              <i class="ph-bold ph-shield-check text-sage text-lg"></i>
+              <span>All products certified biodegradable and stone-safe.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 6: CALENDAR ==================== -->
+      <section id="section-calendar" class="space-y-6 hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-champagne/40 pb-5">
+          <div>
+            <span class="text-xs font-semibold text-gold tracking-widest uppercase">Timelines & Milestones</span>
+            <h2 class="text-3xl font-serif font-bold text-forest mt-1">Estate Cleaning Calendar</h2>
+            <p class="text-xs text-charcoal-muted mt-1">Schedule seasonal maintenance, deep crystal cleans, and air purification cycles.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="changeCalendarMonth(-1)" class="w-8 h-8 rounded-full border border-champagne/50 flex items-center justify-center text-forest hover:bg-champagne/20"><i class="ph-bold ph-caret-left"></i></button>
+            <h3 id="calendarMonthTitle" class="font-serif text-lg font-bold text-forest w-36 text-center">October 2026</h3>
+            <button onclick="changeCalendarMonth(1)" class="w-8 h-8 rounded-full border border-champagne/50 flex items-center justify-center text-forest hover:bg-champagne/20"><i class="ph-bold ph-caret-right"></i></button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Calendar Grid Card -->
+          <div class="lg:col-span-2 bg-cardWhite p-6 rounded-3xl border border-champagne/40 shadow-lux">
+            <!-- Day labels -->
+            <div class="grid grid-cols-7 text-center text-xs font-serif font-bold text-forest pb-3 border-b border-champagne/30">
+              <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+            </div>
+            <!-- Month Days Container -->
+            <div id="calendarDaysGrid" class="grid grid-cols-7 gap-2 pt-4">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Selected Day Schedule -->
+          <div class="bg-cardWhite p-6 rounded-3xl border border-champagne/40 shadow-lux space-y-5 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between border-b border-champagne/30 pb-3">
+                <h4 id="calendarSelectedDateLabel" class="font-serif text-lg font-bold text-forest">Schedule for Today</h4>
+                <span class="text-xs font-medium px-2.5 py-1 bg-champagne-light rounded-full text-forest">3 Events</span>
+              </div>
+              
+              <div id="calendarEventsList" class="space-y-3">
+                <!-- Dynamically Rendered Calendar Events -->
+              </div>
+            </div>
+
+            <!-- Quick Schedule Form -->
+            <form onsubmit="handleCalendarEventSubmit(event)" class="pt-4 border-t border-champagne/30 space-y-3">
+              <span class="text-xs font-semibold text-forest block">Schedule Event for Selected Date:</span>
+              <input type="text" id="newCalEventTitle" placeholder="Event (e.g., Chandelier Polishing)..." class="w-full bg-ivory/50 border border-champagne/50 px-3 py-2 rounded-lg text-xs focus:outline-none focus:border-forest" required>
+              <button type="submit" class="w-full py-2 bg-forest hover:bg-forest-dark text-ivory text-xs font-semibold rounded-lg transition-lux">
+                Save to Calendar
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 7: PROGRESS & ANALYTICS ==================== -->
+      <section id="section-progress" class="space-y-8 hidden">
+        <div class="border-b border-champagne/40 pb-5">
+          <span class="text-xs font-semibold text-gold tracking-widest uppercase">Performance Metrics</span>
+          <h2 class="text-3xl font-serif font-bold text-forest mt-1">Sanctuary Health & Progress Analytics</h2>
+          <p class="text-xs text-charcoal-muted mt-1">Quantitative insights into maintenance frequency, room readiness, and organizational harmony.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Room Completion Breakdown -->
+          <div class="lg:col-span-2 bg-cardWhite p-6 rounded-3xl border border-champagne/40 shadow-lux space-y-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-serif text-xl font-bold text-forest">Room Purity Index</h3>
+              <span class="text-xs text-charcoal-muted">Calculated from dynamic checklist states</span>
+            </div>
+
+            <div id="analyticsRoomBars" class="space-y-4 pt-2">
+              <!-- Dynamically populated progress bars -->
+            </div>
+          </div>
+
+          <!-- Cleanliness Radar / Health Summary -->
+          <div class="bg-cardWhite p-6 rounded-3xl border border-champagne/40 shadow-lux space-y-6">
+            <h3 class="font-serif text-xl font-bold text-forest border-b border-champagne/30 pb-3">Sanctuary Vitals</h3>
+
+            <div class="space-y-4 text-xs">
+              <div>
+                <div class="flex justify-between font-medium mb-1">
+                  <span class="text-charcoal">Air Purification Efficiency</span>
+                  <span class="text-forest font-bold">96%</span>
+                </div>
+                <div class="w-full bg-ivory rounded-full h-2">
+                  <div class="bg-sage h-2 rounded-full" style="width: 96%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-medium mb-1">
+                  <span class="text-charcoal">Wood & Stone Sealing Recency</span>
+                  <span class="text-forest font-bold">88%</span>
+                </div>
+                <div class="w-full bg-ivory rounded-full h-2">
+                  <div class="bg-champagne h-2 rounded-full" style="width: 88%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-medium mb-1">
+                  <span class="text-charcoal">Linen & Fabric Refresh Cycle</span>
+                  <span class="text-forest font-bold">100%</span>
+                </div>
+                <div class="w-full bg-ivory rounded-full h-2">
+                  <div class="bg-forest h-2 rounded-full" style="width: 100%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-medium mb-1">
+                  <span class="text-charcoal">Declutter / Spatial Minimalism</span>
+                  <span class="text-forest font-bold">82%</span>
+                </div>
+                <div class="w-full bg-ivory rounded-full h-2">
+                  <div class="bg-gold h-2 rounded-full" style="width: 82%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 bg-champagne-light/50 rounded-2xl border border-champagne/40 text-center">
+              <i class="ph-fill ph-trophy text-gold text-2xl mb-1 inline-block"></i>
+              <h4 class="font-serif text-base font-bold text-forest">Five-Star Residence Grade</h4>
+              <p class="text-[11px] text-charcoal-muted mt-1">Meets highest European boutique hotel hospitality and organization benchmarks.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 8: BEFORE & AFTER GALLERY ==================== -->
+      <section id="section-gallery" class="space-y-8 hidden">
+        <div class="border-b border-champagne/40 pb-5">
+          <span class="text-xs font-semibold text-gold tracking-widest uppercase">Visual Proof of Order</span>
+          <h2 class="text-3xl font-serif font-bold text-forest mt-1">Before & After Sanctuary Studio</h2>
+          <p class="text-xs text-charcoal-muted mt-1">Interactive split comparison showing the transformational serenity achieved through professional decluttering.</p>
+        </div>
+
+        <!-- Interactive Split Slider Component -->
+        <div class="bg-cardWhite p-6 rounded-3xl border border-champagne/40 shadow-lux space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-forest">The Great Room & Primary Library</h3>
+              <p class="text-xs text-charcoal-muted">Drag slider to reveal the organized state vs prior accumulation.</p>
+            </div>
+            <span class="px-3 py-1 bg-sage-light text-forest text-xs font-semibold rounded-full">Completed Transformation</span>
+          </div>
+
+          <div id="splitComparisonContainer" class="split-image-container relative rounded-2xl h-[400px] md:h-[480px] w-full overflow-hidden shadow-inner cursor-ew-resize">
+            <!-- After Image (Base) -->
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80" 
+                 alt="After - Flawless Living Room" 
+                 class="absolute inset-0 w-full h-full object-cover">
+            
+            <div class="absolute top-4 right-4 bg-forest/80 backdrop-blur-md px-3.5 py-1.5 rounded-full text-ivory text-xs font-semibold shadow-md z-10">
+              Organized Sanctuary (After)
+            </div>
+
+            <!-- Before Image (Clipped Left Layer) -->
+            <div id="splitBeforeLayer" class="split-image-before">
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80" 
+                   alt="Before - Cluttered Room" 
+                   class="absolute top-0 left-0 max-w-none h-full w-[800px] md:w-[1200px] object-cover filter contrast-75 brightness-90">
+              <div class="absolute top-4 left-4 bg-charcoal/80 backdrop-blur-md px-3.5 py-1.5 rounded-full text-ivory text-xs font-semibold shadow-md">
+                Previous State (Before)
+              </div>
+            </div>
+
+            <!-- Draggable divider line -->
+            <div id="splitHandle" class="split-slider-handle flex items-center justify-center">
+              <div class="w-8 h-8 rounded-full bg-gold text-forest-dark flex items-center justify-center shadow-lg border-2 border-white">
+                <i class="ph-bold ph-arrows-left-right text-xs"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 9: NOTES & IDEAS ==================== -->
+      <section id="section-notes" class="space-y-6 hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-champagne/40 pb-5">
+          <div>
+            <span class="text-xs font-semibold text-gold tracking-widest uppercase">Atmospheric Details</span>
+            <h2 class="text-3xl font-serif font-bold text-forest mt-1">Interior Notes & Sensory Concepts</h2>
+            <p class="text-xs text-charcoal-muted mt-1">Document signature scent profiles, lighting mood settings, and seasonal floral arrangements.</p>
+          </div>
+          <button onclick="openAddNoteModal()" class="px-5 py-2.5 bg-forest hover:bg-forest-dark text-ivory rounded-full text-xs font-semibold flex items-center gap-2 transition-lux shadow-sm">
+            <i class="ph-bold ph-plus text-champagne"></i> New Concept Note
+          </button>
+        </div>
+
+        <div id="notesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamically populated notes -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== MODALS & DRAWERS ==================== -->
+
+  <!-- 1. Room Detail & Checklist Modal -->
+  <div id="roomDetailModal" class="fixed inset-0 z-50 bg-forest-dark/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-cardWhite rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl border border-champagne/40 animate-fade-in">
+      <!-- Modal Header with Image Background -->
+      <div class="relative h-48 overflow-hidden flex items-end p-6">
+        <img id="modalRoomImage" src="" alt="Room detail banner" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-forest-dark/90 via-forest-dark/40 to-transparent"></div>
+        <div class="relative z-10 text-ivory flex-1">
+          <span id="modalRoomTag" class="text-[10px] uppercase font-bold tracking-widest px-2.5 py-0.5 rounded-full bg-champagne/30 text-champagne">Ground Floor</span>
+          <h3 id="modalRoomTitle" class="text-2xl md:text-3xl font-serif font-bold text-ivory mt-1">Grand Living Hall</h3>
+        </div>
+        <button onclick="closeRoomModal()" class="relative z-10 w-9 h-9 rounded-full bg-black/40 hover:bg-black/70 text-ivory flex items-center justify-center transition">
+          <i class="ph-bold ph-x text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Checklist) -->
+      <div class="p-6 overflow-y-auto flex-1 space-y-6">
+        <div class="flex items-center justify-between border-b border-champagne/30 pb-3">
+          <div>
+            <h4 class="text-sm font-semibold text-forest">Organization & Cleaning Checklist</h4>
+            <p class="text-xs text-charcoal-muted">Check off items to reflect instantaneous harmony status.</p>
+          </div>
+          <span id="modalRoomPercent" class="text-xs font-serif font-bold px-3 py-1 rounded-full bg-champagne-light text-forest">80% Done</span>
+        </div>
+
+        <!-- Checkbox Items Container -->
+        <div id="modalTasksList" class="space-y-2.5">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Add Task Form inside Modal -->
+        <form onsubmit="handleModalAddTask(event)" class="pt-4 border-t border-champagne/30 flex gap-2">
+          <input type="text" id="modalNewTaskInput" placeholder="Add specific task for this space..." class="flex-1 px-4 py-2 text-xs rounded-xl border border-champagne/50 focus:outline-none focus:border-forest" required>
+          <button type="submit" class="px-4 py-2 bg-forest text-ivory rounded-xl text-xs font-semibold hover:bg-forest-dark transition">
+            Add Task
+          </button>
+        </form>
+      </div>
+      
+      <div class="px-6 py-4 bg-ivory/60 border-t border-champagne/30 flex justify-end">
+        <button onclick="closeRoomModal()" class="px-6 py-2.5 bg-forest text-ivory text-xs font-semibold rounded-full hover:bg-forest-dark transition-lux">
+          Done & Update Room
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Add Custom Room Modal -->
+  <div id="addRoomModal" class="fixed inset-0 z-50 bg-forest-dark/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-cardWhite rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-champagne/40 space-y-5">
+      <div class="flex items-center justify-between border-b border-champagne/30 pb-3">
+        <h3 class="font-serif text-2xl font-bold text-forest">Curate New Space</h3>
+        <button onclick="closeAddRoomModal()" class="text-charcoal-muted hover:text-forest">
+          <i class="ph-bold ph-x text-xl"></i>
+        </button>
+      </div>
+      
+      <form onsubmit="handleCreateRoom(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-semibold text-forest mb-1">Room Designation / Title</label>
+          <input type="text" id="customRoomName" placeholder="e.g., Solarium & Library, Wine Vault, Dressing Salon" class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest" required>
+        </div>
+        <div>
+          <label class="block font-semibold text-forest mb-1">Architectural Wing / Level</label>
+          <input type="text" id="customRoomLevel" placeholder="e.g., East Wing • Level 2" class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest" required>
+        </div>
+        <div>
+          <label class="block font-semibold text-forest mb-1">Photography Image URL</label>
+          <input type="url" id="customRoomImg" placeholder="https://images.unsplash.com/photo-..." class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest">
+          <span class="text-[10px] text-charcoal-light mt-1 block">Leave blank to use an elegant luxury default.</span>
+        </div>
+        <div>
+          <label class="block font-semibold text-forest mb-1">Initial Care Rituals (comma separated)</label>
+          <input type="text" id="customRoomTasks" placeholder="Dust crown moldings, Condition leather seating, Vacuum Persian rug" class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest">
+        </div>
+        <div class="pt-4 flex justify-end gap-3">
+          <button type="button" onclick="closeAddRoomModal()" class="px-5 py-2.5 rounded-full border border-champagne/50 text-charcoal hover:bg-champagne/20">Cancel</button>
+          <button type="submit" class="px-6 py-2.5 rounded-full bg-forest text-ivory font-semibold hover:bg-forest-dark transition-lux">Create Sanctuary Space</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Add Inventory Modal -->
+  <div id="addInventoryModal" class="fixed inset-0 z-50 bg-forest-dark/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-cardWhite rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-champagne/40 space-y-5">
+      <div class="flex items-center justify-between border-b border-champagne/30 pb-3">
+        <h3 class="font-serif text-2xl font-bold text-forest">Catalog Household Asset</h3>
+        <button onclick="closeAddInventoryModal()" class="text-charcoal-muted hover:text-forest">
+          <i class="ph-bold ph-x text-xl"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleCreateInventory(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-semibold text-forest mb-1">Asset Name</label>
+          <input type="text" id="invItemName" placeholder="e.g. Sèvres Porcelain Dinnerware Set" class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest" required>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-forest mb-1">Category</label>
+            <select id="invItemCategory" class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest">
+              <option value="Fine Linens">Fine Linens</option>
+              <option value="Tableware & Crystal">Tableware & Crystal</option>
+              <option value="Heirloom Decor">Heirloom Decor</option>
+              <option value="Care Equipment">Care Equipment</option>
+              <option value="Wardrobe Vault">Wardrobe Vault</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-forest mb-1">Quantity</label>
+            <input type="number" id="invItemQty" value="1" min="1" class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest" required>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-forest mb-1">Storage Location / Vault</label>
+            <input type="text" id="invItemLocation" placeholder="e.g. Butler's Pantry Drawer 3" class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest" required>
+          </div>
+          <div>
+            <label class="block font-semibold text-forest mb-1">Condition</label>
+            <select id="invItemCondition" class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest">
+              <option value="Pristine">Pristine</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Archived">Archived</option>
+              <option value="Needs Restoration">Needs Restoration</option>
+            </select>
+          </div>
+        </div>
+        <div class="pt-4 flex justify-end gap-3">
+          <button type="button" onclick="closeAddInventoryModal()" class="px-5 py-2.5 rounded-full border border-champagne/50 text-charcoal hover:bg-champagne/20">Cancel</button>
+          <button type="submit" class="px-6 py-2.5 rounded-full bg-forest text-ivory font-semibold hover:bg-forest-dark transition-lux">Save to Archive</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Add Concept Note Modal -->
+  <div id="addNoteModal" class="fixed inset-0 z-50 bg-forest-dark/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-cardWhite rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-champagne/40 space-y-5">
+      <div class="flex items-center justify-between border-b border-champagne/30 pb-3">
+        <h3 class="font-serif text-2xl font-bold text-forest">Capture Design & Scent Idea</h3>
+        <button onclick="closeAddNoteModal()" class="text-charcoal-muted hover:text-forest">
+          <i class="ph-bold ph-x text-xl"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleCreateNote(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-semibold text-forest mb-1">Concept Title</label>
+          <input type="text" id="noteTitle" placeholder="e.g. Evening Scent & Candle Placement" class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest" required>
+        </div>
+        <div>
+          <label class="block font-semibold text-forest mb-1">Target Room / Setting</label>
+          <input type="text" id="noteRoom" placeholder="e.g. Master Bedroom & Dressing Salon" class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest" required>
+        </div>
+        <div>
+          <label class="block font-semibold text-forest mb-1">Detailed Inspiration / Routine Notes</label>
+          <textarea id="noteContent" rows="4" placeholder="Light Diptyque Baies candle 30 minutes before twilight. Open transoms for cross-breeze..." class="w-full px-3 py-2 border border-champagne/50 rounded-xl focus:outline-none focus:border-forest" required></textarea>
+        </div>
+        <div class="pt-4 flex justify-end gap-3">
+          <button type="button" onclick="closeAddNoteModal()" class="px-5 py-2.5 rounded-full border border-champagne/50 text-charcoal hover:bg-champagne/20">Cancel</button>
+          <button type="submit" class="px-6 py-2.5 rounded-full bg-forest text-ivory font-semibold hover:bg-forest-dark transition-lux">Preserve Idea</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification element -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-forest text-ivory px-5 py-3 rounded-2xl shadow-lux flex items-center gap-3 border border-champagne/30 text-xs">
+    <span class="text-gold text-lg"><i class="ph-fill ph-check-circle"></i></span>
+    <span id="toastMessage">Sanctuary changes saved</span>
+  </div>
+
+  <!-- ==================== JAVASCRIPT APPLICATION CORE ==================== -->
+  <script>
+    /* =========================================================
+       DEFAULT INITIAL DATA (Stored in LocalStorage)
+    ========================================================= */
+    const DEFAULT_ROOMS = [
+      {
+        id: 'living-room',
+        name: 'Grand Living Hall',
+        level: 'Ground Floor • West Salon',
+        image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80',
+        tasks: [
+          { id: 'lr-1', title: 'Fluff & align down sofa cushions', completed: true },
+          { id: 'lr-2', title: 'Polish travertine coffee table with dry microfiber', completed: true },
+          { id: 'lr-3', title: 'Dust high-ceiling crown moldings', completed: false },
+          { id: 'lr-4', title: 'Inspect and condition velvet lounge chairs', completed: true },
+          { id: 'lr-5', title: 'Refresh seasonal white floral arrangements', completed: true }
+        ]
+      },
+      {
+        id: 'master-bedroom',
+        name: 'Master Sanctuary Suite',
+        level: 'Second Floor • East Wing',
+        image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80',
+        tasks: [
+          { id: 'mb-1', title: 'Press 800-thread Italian sateen linens', completed: true },
+          { id: 'mb-2', title: 'Mist lavender aromatherapy mist on bolsters', completed: true },
+          { id: 'mb-3', title: 'Dust bedside sconces & concealed wiring', completed: true },
+          { id: 'mb-4', title: 'Organize walk-in shoe archive', completed: false }
+        ]
+      },
+      {
+        id: 'guest-bedroom',
+        name: 'The Orchid Guest Chamber',
+        level: 'Second Floor • North Wing',
+        image: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80',
+        tasks: [
+          { id: 'gb-1', title: 'Stock welcome decanter with purified mineral water', completed: true },
+          { id: 'gb-2', title: 'Inspect hypoallergenic spare goose pillows', completed: true },
+          { id: 'gb-3', title: 'Launder guest linen robe set', completed: false }
+        ]
+      },
+      {
+        id: 'chefs-kitchen',
+        name: "Chef's Culinary Atelier",
+        level: 'Ground Floor • Central Hearth',
+        image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
+        tasks: [
+          { id: 'ck-1', title: 'Wipe Calacatta marble counters with pH neutral soap', completed: true },
+          { id: 'ck-2', title: 'Polish unlacquered brass pot filler & sink', completed: true },
+          { id: 'ck-3', title: 'Deodorize Sub-Zero refrigerator air filters', completed: false },
+          { id: 'ck-4', title: 'Oil end-grain butcher block with food-safe beeswax', completed: false },
+          { id: 'ck-5', title: 'Organize spice vault in alphabetical symmetry', completed: true }
+        ]
+      },
+      {
+        id: 'primary-bath',
+        name: 'En-Suite Marble Spa',
+        level: 'Second Floor • Master Wing',
+        image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
+        tasks: [
+          { id: 'pb-1', title: 'Descale freestanding soak tub & nickel fixtures', completed: true },
+          { id: 'pb-2', title: 'Fold plush Turkish bath sheets in thirds', completed: true },
+          { id: 'pb-3', title: 'Refill Aesop body wash and eucalyptus bath salts', completed: true },
+          { id: 'pb-4', title: 'Polish frameless glass shower enclosure', completed: true }
+        ]
+      },
+      {
+        id: 'powder-room',
+        name: 'The Gold Leaf Powder Room',
+        level: 'Ground Floor • Foyer',
+        image: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80',
+        tasks: [
+          { id: 'pr-1', title: 'Refresh embroidered Irish linen guest hand towels', completed: true },
+          { id: 'pr-2', title: 'Trim single-stem botanical in crystal bud vase', completed: true },
+          { id: 'pr-3', title: 'Polish bronze vanity mirror edge', completed: false }
+        ]
+      },
+      {
+        id: 'terrace-balcony',
+        name: 'Sunrise Veranda & Balcony',
+        level: 'Penthouse • South Terrace',
+        image: 'https://images.unsplash.com/photo-1533779283484-8da4979d70c8?auto=format&fit=crop&w=800&q=80',
+        tasks: [
+          { id: 'tb-1', title: 'Mop teak decking with mild marine detergent', completed: false },
+          { id: 'tb-2', title: 'Hydrate potted Meyer lemon and olive trees', completed: true },
+          { id: 'tb-3', title: 'Wipe all-weather woven chaises', completed: true }
+        ]
+      },
+      {
+        id: 'formal-dining',
+        name: 'The Walnut Dining Hall',
+        level: 'Ground Floor • Formal Wing',
+        image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=800&q=80',
+        tasks: [
+          { id: 'fd-1', title: 'Dust Murano glass chandelier pendalogues', completed: false },
+          { id: 'fd-2', title: 'Condition solid walnut live-edge banquet table', completed: true },
+          { id: 'fd-3', title: 'Polish Christofle silverware in velvet chest', completed: true }
+        ]
+      }
+    ];
+
+    const DEFAULT_ROUTINES = [
+      { id: 'r-1', title: 'Smooth and straighten bed linen folds', room: 'Master Sanctuary Suite', freq: 'daily', completed: true },
+      { id: 'r-2', title: 'Squeegee shower glass and dry marble ledge', room: 'En-Suite Marble Spa', freq: 'daily', completed: true },
+      { id: 'r-3', title: 'Empty all waste baskets into compost sorting', room: 'General Residence', freq: 'daily', completed: true },
+      { id: 'r-4', title: 'Wipe polished induction cooktop with glass mist', room: "Chef's Culinary Atelier", freq: 'daily', completed: true },
+      { id: 'r-5', title: 'Light evening beeswax tapers & diffusers', room: 'Grand Living Hall', freq: 'daily', completed: false },
+      { id: 'r-6', title: 'Dust high books and art picture lights', room: 'Grand Living Hall', freq: 'weekly', completed: false },
+      { id: 'r-7', title: 'Launder all bath sheets and sauna towels at 60°C', room: 'En-Suite Marble Spa', freq: 'weekly', completed: true },
+      { id: 'r-8', title: 'Vacuum behind and under all low-profile upholstery', room: 'Grand Living Hall', freq: 'weekly', completed: false },
+      { id: 'r-9', title: 'Descale espresso machine with citric acid solution', room: "Chef's Culinary Atelier", freq: 'weekly', completed: true },
+      { id: 'r-10', title: 'Deep steam upholstery & mattress sanitization', room: 'Master Sanctuary Suite', freq: 'monthly', completed: false },
+      { id: 'r-11', title: 'Inspect HVAC HEPA filters and ionizers', room: 'General Residence', freq: 'monthly', completed: true },
+      { id: 'r-12', title: 'Treat marble surfaces with penetrating impregnator', room: "Chef's Culinary Atelier", freq: 'monthly', completed: false }
+    ];
+
+    const DEFAULT_PLANNER_FURNITURE = [
+      { id: 'item-1', type: 'sofa', name: 'Curved Bouclé Sofa', x: 80, y: 120, width: 170, height: 70, rotation: 0 },
+      { id: 'item-2', type: 'table', name: 'Travertine Coffee Table', x: 120, y: 220, width: 90, height: 50, rotation: 0 },
+      { id: 'item-3', type: 'armchair', name: 'Lounge Armchair', x: 280, y: 140, width: 65, height: 65, rotation: 315 },
+      { id: 'item-4', type: 'credenza', name: 'Fluted Walnut Credenza', x: 60, y: 380, width: 180, height: 45, rotation: 0 },
+      { id: 'item-5', type: 'plant', name: 'Potted Olive Tree', x: 420, y: 80, width: 50, height: 50, rotation: 0 }
+    ];
+
+    const DEFAULT_INVENTORY = [
+      { id: 'inv-1', name: 'Frette 1860 Egyptian Percale Sheet Set', room: 'Master Suite', location: 'Linen Closet Vault B', qty: 4, condition: 'Pristine', category: 'Fine Linens' },
+      { id: 'inv-2', name: 'Baccarat Crystal Champagne Coupes (Set of 12)', room: 'Dining Hall', location: 'Glassware Credenza', qty: 12, condition: 'Pristine', category: 'Tableware & Crystal' },
+      { id: 'inv-3', name: 'Miele Complete C3 Brilliant Vacuum Attachments', room: 'Utility Room', location: 'Appliance Caddy 1', qty: 6, condition: 'Excellent', category: 'Care Equipment' },
+      { id: 'inv-4', name: 'Cashmere Throw Blankets (Charcoal & Oatmeal)', room: 'Living Hall', location: 'Ottoman Storage Box', qty: 3, condition: 'Pristine', category: 'Fine Linens' },
+      { id: 'inv-5', name: 'Christofle Silver-Plated Mood Cutlery Capsule', room: 'Kitchen', location: 'Silverware Drawer A', qty: 1, condition: 'Pristine', category: 'Tableware & Crystal' },
+      { id: 'inv-6', name: 'Vintage Murano Glass Hand-Blown Centerpiece', room: 'Dining Hall', location: 'China Display Upper', qty: 1, condition: 'Excellent', category: 'Heirloom Decor' },
+      { id: 'inv-7', name: 'Loro Piana Cedar Preservation Garment Bags', room: 'Dressing Salon', location: 'Wardrobe Rail 4', qty: 10, condition: 'Pristine', category: 'Wardrobe Vault' },
+      { id: 'inv-8', name: 'Dyson Pure Cool HEPA Replacement Cartridges', room: 'Utility Room', location: 'Filter Shelf 2', qty: 2, condition: 'Pristine', category: 'Care Equipment' }
+    ];
+
+    const DEFAULT_SHOPPING = [
+      { id: 'sp-1', item: 'Murchison-Hume Heirloom Surface Spray', category: 'Polishing & Care', done: false },
+      { id: 'sp-2', item: 'Diptyque Feu de Bois Room Spray', category: 'Aromatics & Soap', done: true },
+      { id: 'sp-3', item: 'The Laundress Wool & Cashmere Shampoo', category: 'Polishing & Care', done: false },
+      { id: 'sp-4', item: 'Cire Trudon Ernesto Wax Cameos', category: 'Aromatics & Soap', done: false },
+      { id: 'sp-5', item: 'Sub-Zero Dual Refrigeration Water Filters', category: 'Appliance Filters', done: true },
+      { id: 'sp-6', item: 'Linen Twill Dusting Cloths (10-Pack)', category: 'Linens & Paper', done: false }
+    ];
+
+    const DEFAULT_NOTES = [
+      {
+        id: 'note-1',
+        title: "Master Suite Evening Turnover Protocol (Hemnath's Suite)",
+        room: 'Master Sanctuary Suite',
+        content: 'Turn down duvet at 45-degree angle. Place purified carafe and fresh tumbler on brass bedside coasters. Set ambient lighting dimmers to 15% warmth.'
+      },
+      {
+        id: 'note-2',
+        title: 'Calacatta Marble Etch Prevention',
+        room: "Chef's Culinary Atelier",
+        content: 'Wine and citrus cutting boards must use silicone footers. Wipe any spills immediately with damp chamois cloth—no acidic cleaners ever.'
+      },
+      {
+        id: 'note-3',
+        title: 'Curated Botanical Scent Rotation',
+        room: 'Grand Living Hall & Foyer',
+        content: 'Autumn: Sandalwood, smoked amber, fresh cut olive branches. Winter: Siberian fir, cardamom, and beeswax tapers.'
+      }
+    ];
+
+    /* =========================================================
+       APPLICATION STATE MANAGEMENT
+    ========================================================= */
+    let appState = {
+      rooms: JSON.parse(localStorage.getItem('hh_rooms')) || DEFAULT_ROOMS,
+      routines: JSON.parse(localStorage.getItem('hh_routines')) || DEFAULT_ROUTINES,
+      furniture: JSON.parse(localStorage.getItem('hh_furniture')) || DEFAULT_PLANNER_FURNITURE,
+      inventory: JSON.parse(localStorage.getItem('hh_inventory')) || DEFAULT_INVENTORY,
+      shopping: JSON.parse(localStorage.getItem('hh_shopping')) || DEFAULT_SHOPPING,
+      notes: JSON.parse(localStorage.getItem('hh_notes')) || DEFAULT_NOTES,
+      calendarMonthOffset: 0,
+      activeRoutineTab: 'daily',
+      activeRoomFilter: 'all',
+      activeRoomModalId: null,
+      selectedDateString: new Date().toISOString().split('T')[0]
+    };
+
+    function saveState() {
+      localStorage.setItem('hh_rooms', JSON.stringify(appState.rooms));
+      localStorage.setItem('hh_routines', JSON.stringify(appState.routines));
+      localStorage.setItem('hh_furniture', JSON.stringify(appState.furniture));
+      localStorage.setItem('hh_inventory', JSON.stringify(appState.inventory));
+      localStorage.setItem('hh_shopping', JSON.stringify(appState.shopping));
+      localStorage.setItem('hh_notes', JSON.stringify(appState.notes));
+      updateGlobalCounters();
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      }, 2500);
+    }
+
+    function resetApplicationData() {
+      localStorage.clear();
+      appState.rooms = JSON.parse(JSON.stringify(DEFAULT_ROOMS));
+      appState.routines = JSON.parse(JSON.stringify(DEFAULT_ROUTINES));
+      appState.furniture = JSON.parse(JSON.stringify(DEFAULT_PLANNER_FURNITURE));
+      appState.inventory = JSON.parse(JSON.stringify(DEFAULT_INVENTORY));
+      appState.shopping = JSON.parse(JSON.stringify(DEFAULT_SHOPPING));
+      appState.notes = JSON.parse(JSON.stringify(DEFAULT_NOTES));
+      saveState();
+      renderAll();
+      showToast('Sanctuary restored to initial architectural state');
+    }
+
+    /* =========================================================
+       NAVIGATION & SECTION SWITCHING
+    ========================================================= */
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = {
+      dashboard: document.getElementById('section-dashboard'),
+      routines: document.getElementById('section-routines'),
+      planner: document.getElementById('section-planner'),
+      inventory: document.getElementById('section-inventory'),
+      shopping: document.getElementById('section-shopping'),
+      calendar: document.getElementById('section-calendar'),
+      progress: document.getElementById('section-progress'),
+      gallery: document.getElementById('section-gallery'),
+      notes: document.getElementById('section-notes')
+    };
+
+    const sectionTitles = {
+      dashboard: 'Sanctuary Overview',
+      routines: 'Cleaning Routines & Cadence',
+      planner: 'Furniture Arrangement Studio',
+      inventory: 'Inventory & Vault Storage',
+      shopping: 'Supplies & Approved Provisions',
+      calendar: 'Maintenance Calendar',
+      progress: 'Sanctuary Analytics',
+      gallery: 'Before & After Studio',
+      notes: 'Interior Concepts & Scent Profiles'
+    };
+
+    function switchSection(targetKey) {
+      // Hide all
+      Object.keys(sections).forEach(key => {
+        if (sections[key]) sections[key].classList.add('hidden');
+      });
+
+      // Show target
+      if (sections[targetKey]) {
+        sections[targetKey].classList.remove('hidden');
+      }
+
+      // Update Nav active style
+      navItems.forEach(item => {
+        const sec = item.getAttribute('data-section');
+        if (sec === targetKey) {
+          item.classList.add('bg-champagne/15', 'text-ivory', 'border-champagne');
+          item.classList.remove('text-ivory/75', 'border-transparent');
+        } else {
+          item.classList.remove('bg-champagne/15', 'text-ivory', 'border-champagne');
+          item.classList.add('text-ivory/75', 'border-transparent');
+        }
+      });
+
+      // Update title
+      const topTitle = document.getElementById('topBarTitle');
+      if (topTitle) topTitle.textContent = sectionTitles[targetKey] || 'Home Harmony';
+
+      // Re-trigger specific renders if needed
+      if (targetKey === 'planner') renderFurniturePlanner();
+      if (targetKey === 'progress') renderAnalytics();
+      if (targetKey === 'calendar') renderCalendar();
+      if (targetKey === 'inventory') renderInventory();
+      if (targetKey === 'gallery') initSplitSlider();
+
+      // Close mobile sidebar on nav click
+      closeSidebar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    navItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sec = item.getAttribute('data-section');
+        switchSection(sec);
+      });
+    });
+
+    // Mobile sidebar toggle
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const openBtn = document.getElementById('openSidebarBtn');
+    const closeBtn = document.getElementById('closeSidebarBtn');
+
+    function openSidebar() {
+      sidebar.classList.remove('-translate-x-full');
+      overlay.classList.remove('hidden');
+    }
+    function closeSidebar() {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    }
+    if (openBtn) openBtn.addEventListener('click', openSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    if (overlay) overlay.addEventListener('click', closeSidebar);
+
+    function scrollToRooms() {
+      const el = document.getElementById('roomsShowcaseContainer');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* =========================================================
+       ROOMS & CHECKLIST LOGIC
+    ========================================================= */
+    function getRoomProgress(room) {
+      if (!room.tasks || room.tasks.length === 0) return 100;
+      const completed = room.tasks.filter(t => t.completed).length;
+      return Math.round((completed / room.tasks.length) * 100);
+    }
+
+    function renderRooms() {
+      const grid = document.getElementById('roomsGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      let filtered = appState.rooms;
+      if (appState.activeRoomFilter === 'incomplete') {
+        filtered = appState.rooms.filter(r => getRoomProgress(r) < 100);
+      } else if (appState.activeRoomFilter === 'complete') {
+        filtered = appState.rooms.filter(r => getRoomProgress(r) === 100);
+      }
+
+      filtered.forEach(room => {
+        const percent = getRoomProgress(room);
+        const card = document.createElement('div');
+        card.className = "bg-cardWhite rounded-3xl overflow-hidden border border-champagne/40 shadow-lux hover:shadow-lux-hover transition-lux flex flex-col group";
+
+        card.innerHTML = `
+          <div class="relative h-48 overflow-hidden">
+            <img src="${room.image}" alt="${room.name}" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" onerror="this.src='https://placehold.co/600x400/183D35/F8F5EF?text=${encodeURIComponent(room.name)}'">
+            <div class="absolute inset-0 bg-gradient-to-t from-forest-dark/80 via-transparent to-transparent"></div>
+            <span class="absolute top-3 left-3 text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-full bg-forest-dark/80 text-champagne backdrop-blur-md">
+              ${room.level}
+            </span>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-ivory">
+              <span class="text-xs font-serif italic">${room.tasks.length} Care Tasks</span>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full ${percent === 100 ? 'bg-emerald-600/90' : 'bg-champagne/90 text-forest-dark'} backdrop-blur-sm">
+                ${percent}% Pristine
+              </span>
+            </div>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h4 class="font-serif text-xl font-bold text-forest leading-snug group-hover:text-forest-light transition">${room.name}</h4>
+              <!-- Progress Bar -->
+              <div class="w-full bg-champagne-light rounded-full h-1.5 mt-3 overflow-hidden">
+                <div class="bg-forest h-1.5 rounded-full transition-all duration-500" style="width: ${percent}%"></div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 pt-2 border-t border-champagne/30">
+              <button onclick="openRoomModal('${room.id}')" class="flex-1 py-2 rounded-xl bg-champagne-light hover:bg-champagne/40 text-forest text-xs font-semibold flex items-center justify-center gap-1.5 transition-lux">
+                <i class="ph-bold ph-list-checks"></i> Open Rituals
+              </button>
+              <button onclick="deleteRoom('${room.id}')" title="Archive Room" class="p-2 rounded-xl text-charcoal-light hover:text-rose-600 hover:bg-rose-50 transition">
+                <i class="ph ph-trash text-base"></i>
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterRooms(filter) {
+      appState.activeRoomFilter = filter;
+      document.querySelectorAll('.room-filter').forEach(btn => {
+        btn.classList.remove('bg-forest', 'text-ivory');
+        btn.classList.add('bg-white', 'text-charcoal');
+      });
+      event.target.classList.add('bg-forest', 'text-ivory');
+      event.target.classList.remove('bg-white', 'text-charcoal');
+      renderRooms();
+    }
+
+    /* Modal Room Checklist */
+    function openRoomModal(roomId) {
+      const room = appState.rooms.find(r => r.id === roomId);
+      if (!room) return;
+      appState.activeRoomModalId = roomId;
+
+      document.getElementById('modalRoomImage').src = room.image;
+      document.getElementById('modalRoomTitle').textContent = room.name;
+      document.getElementById('modalRoomTag').textContent = room.level;
+      renderModalTasks();
+
+      const modal = document.getElementById('roomDetailModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeRoomModal() {
+      const modal = document.getElementById('roomDetailModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      appState.activeRoomModalId = null;
+      renderRooms();
+      saveState();
+    }
+
+    function renderModalTasks() {
+      const room = appState.rooms.find(r => r.id === appState.activeRoomModalId);
+      if (!room) return;
+      const list = document.getElementById('modalTasksList');
+      list.innerHTML = '';
+
+      const percent = getRoomProgress(room);
+      document.getElementById('modalRoomPercent').textContent = `${percent}% Done`;
+
+      room.tasks.forEach(task => {
+        const item = document.createElement('div');
+        item.className = "flex items-center justify-between p-3 rounded-xl bg-ivory border border-champagne/30 hover:border-champagne transition";
+        item.innerHTML = `
+          <label class="flex items-center gap-3 flex-1 cursor-pointer">
+            <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTaskStatus('${room.id}', '${task.id}')" class="lux-checkbox">
+            <span class="text-xs text-charcoal font-medium ${task.completed ? 'line-through text-charcoal-light' : ''}">${task.title}</span>
+          </label>
+          <button onclick="deleteTaskFromRoom('${room.id}', '${task.id}')" class="text-charcoal-light hover:text-rose-600 p-1">
+            <i class="ph ph-trash text-sm"></i>
+          </button>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function toggleTaskStatus(roomId, taskId) {
+      const room = appState.rooms.find(r => r.id === roomId);
+      if (!room) return;
+      const task = room.tasks.find(t => t.id === taskId);
+      if (task) {
+        task.completed = !task.completed;
+        saveState();
+        renderModalTasks();
+      }
+    }
+
+    function deleteTaskFromRoom(roomId, taskId) {
+      const room = appState.rooms.find(r => r.id === roomId);
+      if (!room) return;
+      room.tasks = room.tasks.filter(t => t.id !== taskId);
+      saveState();
+      renderModalTasks();
+    }
+
+    function handleModalAddTask(e) {
+      e.preventDefault();
+      const input = document.getElementById('modalNewTaskInput');
+      const val = input.value.trim();
+      if (!val) return;
+
+      const room = appState.rooms.find(r => r.id === appState.activeRoomModalId);
+      if (room) {
+        room.tasks.push({
+          id: 'task-' + Date.now(),
+          title: val,
+          completed: false
+        });
+        input.value = '';
+        saveState();
+        renderModalTasks();
+        showToast('Ritual task added to ' + room.name);
+      }
+    }
+
+    function deleteRoom(roomId) {
+      if (appState.rooms.length <= 1) {
+        showToast('At least one chamber must remain curated.');
+        return;
+      }
+      appState.rooms = appState.rooms.filter(r => r.id !== roomId);
+      saveState();
+      renderRooms();
+      showToast('Space archived from sanctuary');
+    }
+
+    /* Add Custom Room */
+    function openAddRoomModal() {
+      document.getElementById('addRoomModal').classList.remove('hidden');
+      document.getElementById('addRoomModal').classList.add('flex');
+    }
+    function closeAddRoomModal() {
+      document.getElementById('addRoomModal').classList.add('hidden');
+      document.getElementById('addRoomModal').classList.remove('flex');
+    }
+    function handleCreateRoom(e) {
+      e.preventDefault();
+      const name = document.getElementById('customRoomName').value.trim();
+      const level = document.getElementById('customRoomLevel').value.trim();
+      let img = document.getElementById('customRoomImg').value.trim();
+      const rawTasks = document.getElementById('customRoomTasks').value.trim();
+
+      if (!img) {
+        img = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80';
+      }
+
+      const tasksArray = rawTasks ? rawTasks.split(',').map((t, idx) => ({
+        id: 'c-task-' + Date.now() + '-' + idx,
+        title: t.trim(),
+        completed: false
+      })) : [
+        { id: 'c-task-1', title: 'Initial spatial alignment and dusting', completed: false }
+      ];
+
+      appState.rooms.push({
+        id: 'room-' + Date.now(),
+        name,
+        level,
+        image: img,
+        tasks: tasksArray
+      });
+
+      e.target.reset();
+      closeAddRoomModal();
+      saveState();
+      renderRooms();
+      showToast('New sanctuary space designed successfully');
+    }
+
+    /* =========================================================
+       ROUTINES (DAILY / WEEKLY / MONTHLY)
+    ========================================================= */
+    function setRoutineTab(freq) {
+      appState.activeRoutineTab = freq;
+      ['daily', 'weekly', 'monthly'].forEach(f => {
+        const btn = document.getElementById('tab' + f.charAt(0).toUpperCase() + f.slice(1));
+        if (f === freq) {
+          btn.className = "px-4 py-2 rounded-lg text-xs font-semibold bg-forest text-ivory shadow-sm transition-lux";
+        } else {
+          btn.className = "px-4 py-2 rounded-lg text-xs font-semibold text-forest hover:bg-white/60 transition-lux";
+        }
+      });
+      renderRoutines();
+    }
+
+    function renderRoutines() {
+      const list = document.getElementById('routineTasksList');
+      if (!list) return;
+      list.innerHTML = '';
+
+      const filtered = appState.routines.filter(r => r.freq === appState.activeRoutineTab);
+
+      if (filtered.length === 0) {
+        list.innerHTML = `
+          <div class="p-8 text-center bg-cardWhite rounded-2xl border border-champagne/40">
+            <i class="ph ph-sparkle text-3xl text-gold mb-2 inline-block"></i>
+            <p class="text-xs text-charcoal-muted">All ${appState.activeRoutineTab} rituals completed for this horizon.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const row = document.createElement('div');
+        row.className = "bg-cardWhite p-3.5 rounded-xl border border-champagne/30 shadow-lux flex items-center justify-between gap-3";
+        row.innerHTML = `
+          <label class="flex items-center gap-3.5 flex-1 cursor-pointer">
+            <input type="checkbox" ${item.completed ? 'checked' : ''} onchange="toggleRoutine('${item.id}')" class="lux-checkbox">
+            <div>
+              <span class="text-xs font-semibold text-forest block ${item.completed ? 'line-through text-charcoal-light' : ''}">${item.title}</span>
+              <span class="text-[10px] text-charcoal-muted flex items-center gap-1.5 mt-0.5">
+                <i class="ph ph-map-pin text-gold"></i> ${item.room}
+              </span>
+            </div>
+          </label>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-medium px-2 py-0.5 rounded-full ${item.completed ? 'bg-emerald-50 text-emerald-800' : 'bg-champagne-light text-forest'}">
+              ${item.completed ? 'Completed' : 'Pending'}
+            </span>
+            <button onclick="deleteRoutine('${item.id}')" class="text-charcoal-light hover:text-rose-600 p-1">
+              <i class="ph ph-trash text-sm"></i>
+            </button>
+          </div>
+        `;
+        list.appendChild(row);
+      });
+
+      // Update badge count
+      const dueCount = appState.routines.filter(r => !r.completed).length;
+      const b = document.getElementById('routinesBadge');
+      if (b) b.textContent = `${dueCount} Due`;
+    }
+
+    function toggleRoutine(id) {
+      const routine = appState.routines.find(r => r.id === id);
+      if (routine) {
+        routine.completed = !routine.completed;
+        saveState();
+        renderRoutines();
+      }
+    }
+
+    function deleteRoutine(id) {
+      appState.routines = appState.routines.filter(r => r.id !== id);
+      saveState();
+      renderRoutines();
+    }
+
+    function handleRoutineSubmit(e) {
+      e.preventDefault();
+      const titleInput = document.getElementById('newRoutineTitle');
+      const roomInput = document.getElementById('newRoutineRoom');
+      const title = titleInput.value.trim();
+      if (!title) return;
+
+      appState.routines.push({
+        id: 'r-' + Date.now(),
+        title,
+        room: roomInput.value,
+        freq: appState.activeRoutineTab,
+        completed: false
+      });
+
+      titleInput.value = '';
+      saveState();
+      renderRoutines();
+      showToast('Cadence task scheduled');
+    }
+
+    /* =========================================================
+       2D FURNITURE PLANNER (DRAG & ROTATE ENGINE)
+    ========================================================= */
+    let draggedPlannerId = null;
+    let dragOffsetX = 0;
+    let dragOffsetY = 0;
+
+    function renderFurniturePlanner() {
+      const canvas = document.getElementById('plannerCanvas');
+      if (!canvas) return;
+      canvas.innerHTML = '';
+
+      appState.furniture.forEach(item => {
+        const el = document.createElement('div');
+        el.id = item.id;
+        el.className = "absolute rounded-xl border border-forest/40 bg-white/95 shadow-md flex flex-col items-center justify-center p-1.5 cursor-move transition-transform";
+        el.style.left = item.x + 'px';
+        el.style.top = item.y + 'px';
+        el.style.width = item.width + 'px';
+        el.style.height = item.height + 'px';
+        el.style.transform = `rotate(${item.rotation || 0}deg)`;
+
+        // Icon based on type
+        let iconHtml = '<i class="ph ph-cube text-forest"></i>';
+        if (item.type === 'sofa') iconHtml = '<i class="ph-bold ph-armchair text-forest text-lg"></i>';
+        if (item.type === 'table') iconHtml = '<i class="ph-bold ph-circle text-gold text-base"></i>';
+        if (item.type === 'bed') iconHtml = '<i class="ph-bold ph-bed text-forest text-lg"></i>';
+        if (item.type === 'plant') iconHtml = '<i class="ph-bold ph-potted-plant text-emerald-800 text-lg"></i>';
+        if (item.type === 'credenza') iconHtml = '<i class="ph-bold ph-align-bottom text-forest text-base"></i>';
+
+        el.innerHTML = `
+          <div class="flex items-center gap-1 pointer-events-none">
+            ${iconHtml}
+            <span class="text-[10px] font-bold text-forest truncate max-w-[80px]">${item.name}</span>
+          </div>
+          <div class="absolute -top-2.5 -right-2.5 flex gap-1 z-10">
+            <button onclick="rotateFurniture('${item.id}', event)" title="Rotate 45°" class="w-5 h-5 rounded-full bg-forest text-champagne text-[10px] flex items-center justify-center shadow">
+              <i class="ph-bold ph-arrow-clockwise"></i>
+            </button>
+            <button onclick="removeFurniture('${item.id}', event)" title="Remove" class="w-5 h-5 rounded-full bg-rose-700 text-white text-[10px] flex items-center justify-center shadow">
+              <i class="ph-bold ph-x"></i>
+            </button>
+          </div>
+        `;
+
+        // Mouse Drag Handlers
+        el.addEventListener('mousedown', (e) => {
+          if (e.target.tagName.toLowerCase() === 'button' || e.target.closest('button')) return;
+          draggedPlannerId = item.id;
+          const rect = el.getBoundingClientRect();
+          dragOffsetX = e.clientX - rect.left;
+          dragOffsetY = e.clientY - rect.top;
+        });
+
+        // Touch Drag Handlers
+        el.addEventListener('touchstart', (e) => {
+          if (e.target.tagName.toLowerCase() === 'button' || e.target.closest('button')) return;
+          draggedPlannerId = item.id;
+          const touch = e.touches[0];
+          const rect = el.getBoundingClientRect();
+          dragOffsetX = touch.clientX - rect.left;
+          dragOffsetY = touch.clientY - rect.top;
+        }, { passive: true });
+
+        canvas.appendChild(el);
+      });
+    }
+
+    // Global drag listener on canvas
+    const canvasEl = document.getElementById('plannerCanvas');
+    if (canvasEl) {
+      window.addEventListener('mousemove', (e) => {
+        if (!draggedPlannerId) return;
+        const rect = canvasEl.getBoundingClientRect();
+        let newX = e.clientX - rect.left - dragOffsetX;
+        let newY = e.clientY - rect.top - dragOffsetY;
+
+        // Containment bounds
+        newX = Math.max(10, Math.min(rect.width - 90, newX));
+        newY = Math.max(10, Math.min(rect.height - 70, newY));
+
+        const item = appState.furniture.find(f => f.id === draggedPlannerId);
+        if (item) {
+          item.x = Math.round(newX);
+          item.y = Math.round(newY);
+          const el = document.getElementById(item.id);
+          if (el) {
+            el.style.left = item.x + 'px';
+            el.style.top = item.y + 'px';
+          }
+        }
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (draggedPlannerId) {
+          draggedPlannerId = null;
+          saveState();
+        }
+      });
+
+      // Touch move listener
+      window.addEventListener('touchmove', (e) => {
+        if (!draggedPlannerId) return;
+        const touch = e.touches[0];
+        const rect = canvasEl.getBoundingClientRect();
+        let newX = touch.clientX - rect.left - dragOffsetX;
+        let newY = touch.clientY - rect.top - dragOffsetY;
+
+        newX = Math.max(10, Math.min(rect.width - 90, newX));
+        newY = Math.max(10, Math.min(rect.height - 70, newY));
+
+        const item = appState.furniture.find(f => f.id === draggedPlannerId);
+        if (item) {
+          item.x = Math.round(newX);
+          item.y = Math.round(newY);
+          const el = document.getElementById(item.id);
+          if (el) {
+            el.style.left = item.x + 'px';
+            el.style.top = item.y + 'px';
+          }
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => {
+        if (draggedPlannerId) {
+          draggedPlannerId = null;
+          saveState();
+        }
+      });
+    }
+
+    function rotateFurniture(id, e) {
+      if (e) e.stopPropagation();
+      const item = appState.furniture.find(f => f.id === id);
+      if (item) {
+        item.rotation = ((item.rotation || 0) + 45) % 360;
+        saveState();
+        renderFurniturePlanner();
+      }
+    }
+
+    function removeFurniture(id, e) {
+      if (e) e.stopPropagation();
+      appState.furniture = appState.furniture.filter(f => f.id !== id);
+      saveState();
+      renderFurniturePlanner();
+      showToast('Piece removed from floorplan');
+    }
+
+    function addPlannerFurniture(type) {
+      const presets = {
+        sofa: { name: 'Bouclé Sofa', width: 160, height: 70 },
+        armchair: { name: 'Club Chair', width: 65, height: 65 },
+        table: { name: 'Travertine Table', width: 90, height: 50 },
+        dining: { name: 'Oak Banquet Table', width: 170, height: 80 },
+        bed: { name: 'King Bedstead', width: 130, height: 140 },
+        credenza: { name: 'Walnut Credenza', width: 140, height: 40 },
+        plant: { name: 'Olive Urn', width: 50, height: 50 }
+      };
+
+      const p = presets[type] || presets.table;
+      appState.furniture.push({
+        id: 'furn-' + Date.now(),
+        type: type,
+        name: p.name,
+        width: p.width,
+        height: p.height,
+        x: 40 + Math.floor(Math.random() * 100),
+        y: 40 + Math.floor(Math.random() * 100),
+        rotation: 0
+      });
+
+      saveState();
+      renderFurniturePlanner();
+      showToast(`Added ${p.name} to arrangement studio`);
+    }
+
+    function resetPlannerLayout() {
+      appState.furniture = JSON.parse(JSON.stringify(DEFAULT_PLANNER_FURNITURE));
+      saveState();
+      renderFurniturePlanner();
+      showToast('Architectural layout reset');
+    }
+
+    /* =========================================================
+       INVENTORY & STORAGE VAULT
+    ========================================================= */
+    function renderInventory() {
+      const tbody = document.getElementById('inventoryTableBody');
+      const search = (document.getElementById('inventorySearch')?.value || '').toLowerCase();
+      const cat = document.getElementById('inventoryCategoryFilter')?.value || 'all';
+
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      let list = appState.inventory.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(search) || item.location.toLowerCase().includes(search);
+        const matchesCat = cat === 'all' || item.category === cat;
+        return matchesSearch && matchesCat;
+      });
+
+      const countLabel = document.getElementById('inventoryCount');
+      if (countLabel) countLabel.textContent = `Showing ${list.length} cataloged items`;
+
+      if (list.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="py-8 text-center text-charcoal-muted font-sans">
+              No household inventory matched current filter.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      list.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-ivory/50 transition border-b border-champagne/20";
+        tr.innerHTML = `
+          <td class="py-4 px-6 font-medium text-forest">${item.name}</td>
+          <td class="py-4 px-6 text-charcoal-muted"><i class="ph ph-lock text-gold mr-1"></i>${item.location}</td>
+          <td class="py-4 px-6 font-semibold">${item.qty} units</td>
+          <td class="py-4 px-6">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold ${item.condition === 'Pristine' ? 'bg-emerald-50 text-emerald-800' : 'bg-champagne-light text-forest'}">
+              ${item.condition}
+            </span>
+          </td>
+          <td class="py-4 px-6 text-charcoal-muted">${item.category}</td>
+          <td class="py-4 px-6 text-right">
+            <button onclick="deleteInventoryItem('${item.id}')" class="text-charcoal-light hover:text-rose-600 transition">
+              <i class="ph ph-trash text-base"></i>
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function openAddInventoryModal() {
+      document.getElementById('addInventoryModal').classList.remove('hidden');
+      document.getElementById('addInventoryModal').classList.add('flex');
+    }
+    function closeAddInventoryModal() {
+      document.getElementById('addInventoryModal').classList.add('hidden');
+      document.getElementById('addInventoryModal').classList.remove('flex');
+    }
+    function handleCreateInventory(e) {
+      e.preventDefault();
+      const name = document.getElementById('invItemName').value.trim();
+      const cat = document.getElementById('invItemCategory').value;
+      const qty = parseInt(document.getElementById('invItemQty').value) || 1;
+      const loc = document.getElementById('invItemLocation').value.trim();
+      const cond = document.getElementById('invItemCondition').value;
+
+      appState.inventory.push({
+        id: 'inv-' + Date.now(),
+        name,
+        category: cat,
+        qty,
+        location: loc,
+        condition: cond
+      });
+
+      e.target.reset();
+      closeAddInventoryModal();
+      saveState();
+      renderInventory();
+      showToast('Asset recorded into vault storage');
+    }
+
+    function deleteInventoryItem(id) {
+      appState.inventory = appState.inventory.filter(i => i.id !== id);
+      saveState();
+      renderInventory();
+      showToast('Asset record archived');
+    }
+
+    /* =========================================================
+       SHOPPING & PROVISIONS LIST
+    ========================================================= */
+    function renderShopping() {
+      const container = document.getElementById('shoppingListContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      appState.shopping.forEach(item => {
+        const div = document.createElement('div');
+        div.className = "bg-cardWhite p-3.5 rounded-2xl border border-champagne/40 shadow-lux flex items-center justify-between gap-3";
+        div.innerHTML = `
+          <label class="flex items-center gap-3.5 flex-1 cursor-pointer">
+            <input type="checkbox" ${item.done ? 'checked' : ''} onchange="toggleShoppingItem('${item.id}')" class="lux-checkbox">
+            <div>
+              <span class="text-xs font-semibold text-forest block ${item.done ? 'line-through text-charcoal-light' : ''}">${item.item}</span>
+              <span class="text-[10px] text-charcoal-muted uppercase tracking-wider">${item.category}</span>
+            </div>
+          </label>
+          <button onclick="deleteShoppingItem('${item.id}')" class="text-charcoal-light hover:text-rose-600 p-1">
+            <i class="ph ph-trash text-sm"></i>
+          </button>
+        `;
+        container.appendChild(div);
+      });
+
+      const pending = appState.shopping.filter(s => !s.done).length;
+      const badge = document.getElementById('shoppingBadge');
+      if (badge) badge.textContent = pending;
+    }
+
+    function toggleShoppingItem(id) {
+      const item = appState.shopping.find(s => s.id === id);
+      if (item) {
+        item.done = !item.done;
+        saveState();
+        renderShopping();
+      }
+    }
+
+    function deleteShoppingItem(id) {
+      appState.shopping = appState.shopping.filter(s => s.id !== id);
+      saveState();
+      renderShopping();
+    }
+
+    function clearCompletedShopping() {
+      appState.shopping = appState.shopping.filter(s => !s.done);
+      saveState();
+      renderShopping();
+      showToast('Purchased items cleared from restock list');
+    }
+
+    function handleShoppingSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('newShopItem');
+      const cat = document.getElementById('newShopCategory').value;
+      const val = input.value.trim();
+      if (!val) return;
+
+      appState.shopping.push({
+        id: 'sp-' + Date.now(),
+        item: val,
+        category: cat,
+        done: false
+      });
+
+      input.value = '';
+      saveState();
+      renderShopping();
+      showToast('Added to estate procurement list');
+    }
+
+    /* =========================================================
+       CALENDAR ENGINE
+    ========================================================= */
+    const MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    
+    // Scheduled events
+    let calendarEvents = {
+      '2026-10-18': [
+        { title: 'Primary Suite Air Filter Replacement', time: '10:00 AM' },
+        { title: 'Travertine Sealant Inspection', time: '02:30 PM' },
+        { title: 'Fresh Eucalyptus Placement', time: '05:00 PM' }
+      ],
+      '2026-10-21': [
+        { title: 'Wine Cellar Humidity Audit', time: '11:00 AM' }
+      ],
+      '2026-10-25': [
+        { title: 'Chandelier Crystal Detailing', time: '09:00 AM' }
+      ]
+    };
+
+    function changeCalendarMonth(delta) {
+      appState.calendarMonthOffset += delta;
+      renderCalendar();
+    }
+
+    function renderCalendar() {
+      const grid = document.getElementById('calendarDaysGrid');
+      const title = document.getElementById('calendarMonthTitle');
+      if (!grid || !title) return;
+      grid.innerHTML = '';
+
+      const baseDate = new Date(2026, 9 + appState.calendarMonthOffset, 1); // Oct 2026 default
+      const year = baseDate.getFullYear();
+      const month = baseDate.getMonth();
+      title.textContent = `${MONTH_NAMES[month]} ${year}`;
+
+      const firstDayIndex = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // Empty lead days
+      for (let i = 0; i < firstDayIndex; i++) {
+        const empty = document.createElement('div');
+        empty.className = "h-14 md:h-16 rounded-xl bg-transparent";
+        grid.appendChild(empty);
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const hasEvents = calendarEvents[dStr] && calendarEvents[dStr].length > 0;
+        const isSelected = appState.selectedDateString === dStr;
+
+        const cell = document.createElement('button');
+        cell.className = `h-14 md:h-16 rounded-xl p-2 text-left flex flex-col justify-between border transition-lux ${
+          isSelected 
+            ? 'bg-forest text-ivory border-forest shadow-md' 
+            : hasEvents 
+              ? 'bg-champagne-light/50 border-champagne text-forest hover:bg-champagne/30' 
+              : 'bg-ivory/50 border-champagne/20 text-charcoal hover:bg-white'
+        }`;
+
+        cell.innerHTML = `
+          <span class="text-xs font-serif font-bold ${isSelected ? 'text-champagne' : ''}">${day}</span>
+          ${hasEvents ? `<span class="w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-gold' : 'bg-forest'} self-end"></span>` : ''}
+        `;
+
+        cell.onclick = () => {
+          appState.selectedDateString = dStr;
+          renderCalendar();
+          renderCalendarSelectedEvents();
+        };
+
+        grid.appendChild(cell);
+      }
+
+      renderCalendarSelectedEvents();
+    }
+
+    function renderCalendarSelectedEvents() {
+      const container = document.getElementById('calendarEventsList');
+      const label = document.getElementById('calendarSelectedDateLabel');
+      if (!container || !label) return;
+
+      label.textContent = `Schedule for ${appState.selectedDateString}`;
+      container.innerHTML = '';
+
+      const events = calendarEvents[appState.selectedDateString] || [];
+
+      if (events.length === 0) {
+        container.innerHTML = `
+          <div class="p-6 text-center text-charcoal-muted text-xs bg-ivory rounded-2xl border border-champagne/30">
+            No maintenance rituals scheduled for this date.
+          </div>
+        `;
+        return;
+      }
+
+      events.forEach((ev, idx) => {
+        const div = document.createElement('div');
+        div.className = "p-3 rounded-xl bg-ivory border border-champagne/30 flex items-center justify-between text-xs";
+        div.innerHTML = `
+          <div>
+            <h5 class="font-semibold text-forest">${ev.title}</h5>
+            <span class="text-[10px] text-charcoal-light flex items-center gap-1 mt-0.5">
+              <i class="ph ph-clock text-gold"></i> ${ev.time || 'All Day'}
+            </span>
+          </div>
+          <button onclick="removeCalendarEvent('${appState.selectedDateString}', ${idx})" class="text-charcoal-light hover:text-rose-600">
+            <i class="ph ph-trash text-sm"></i>
+          </button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function handleCalendarEventSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('newCalEventTitle');
+      const title = input.value.trim();
+      if (!title) return;
+
+      if (!calendarEvents[appState.selectedDateString]) {
+        calendarEvents[appState.selectedDateString] = [];
+      }
+
+      calendarEvents[appState.selectedDateString].push({
+        title,
+        time: '11:00 AM'
+      });
+
+      input.value = '';
+      renderCalendar();
+      showToast('Scheduled to estate calendar');
+    }
+
+    function removeCalendarEvent(dateStr, index) {
+      if (calendarEvents[dateStr]) {
+        calendarEvents[dateStr].splice(index, 1);
+        renderCalendar();
+      }
+    }
+
+    /* =========================================================
+       SANCTUARY ANALYTICS
+    ========================================================= */
+    function renderAnalytics() {
+      const bars = document.getElementById('analyticsRoomBars');
+      if (!bars) return;
+      bars.innerHTML = '';
+
+      appState.rooms.forEach(room => {
+        const p = getRoomProgress(room);
+        const div = document.createElement('div');
+        div.className = "space-y-1.5";
+        div.innerHTML = `
+          <div class="flex justify-between text-xs font-medium">
+            <span class="text-forest font-semibold">${room.name}</span>
+            <span class="text-charcoal-muted">${p}% Pristine</span>
+          </div>
+          <div class="w-full bg-champagne-light rounded-full h-2">
+            <div class="bg-forest h-2 rounded-full transition-all duration-700" style="width: ${p}%"></div>
+          </div>
+        `;
+        bars.appendChild(div);
+      });
+    }
+
+    /* =========================================================
+       BEFORE / AFTER INTERACTIVE SLIDER
+    ========================================================= */
+    function initSplitSlider() {
+      const container = document.getElementById('splitComparisonContainer');
+      const beforeLayer = document.getElementById('splitBeforeLayer');
+      const handle = document.getElementById('splitHandle');
+      if (!container || !beforeLayer || !handle) return;
+
+      let isSliding = false;
+
+      function updateSliderPosition(clientX) {
+        const rect = container.getBoundingClientRect();
+        let posX = clientX - rect.left;
+        posX = Math.max(0, Math.min(rect.width, posX));
+        const percentage = (posX / rect.width) * 100;
+
+        beforeLayer.style.width = percentage + '%';
+        handle.style.left = percentage + '%';
+      }
+
+      container.onmousedown = (e) => {
+        isSliding = true;
+        updateSliderPosition(e.clientX);
+      };
+      window.onmousemove = (e) => {
+        if (!isSliding) return;
+        updateSliderPosition(e.clientX);
+      };
+      window.onmouseup = () => { isSliding = false; };
+
+      // Touch events
+      container.ontouchstart = (e) => {
+        isSliding = true;
+        updateSliderPosition(e.touches[0].clientX);
+      };
+      window.ontouchmove = (e) => {
+        if (!isSliding) return;
+        updateSliderPosition(e.touches[0].clientX);
+      };
+      window.ontouchend = () => { isSliding = false; };
+    }
+
+    /* =========================================================
+       NOTES & CONCEPTS
+    ========================================================= */
+    function renderNotes() {
+      const grid = document.getElementById('notesGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      appState.notes.forEach(note => {
+        const card = document.createElement('div');
+        card.className = "bg-cardWhite p-6 rounded-3xl border border-champagne/40 shadow-lux flex flex-col justify-between space-y-4 hover:shadow-lux-hover transition-lux";
+        card.innerHTML = `
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-gold text-xs">
+              <span class="flex items-center gap-1 font-semibold uppercase tracking-wider text-[10px]"><i class="ph ph-sparkle"></i> Idea Concept</span>
+              <button onclick="deleteNote('${note.id}')" class="text-charcoal-light hover:text-rose-600 transition"><i class="ph ph-trash"></i></button>
+            </div>
+            <h4 class="font-serif text-lg font-bold text-forest">${note.title}</h4>
+            <p class="text-xs text-charcoal leading-relaxed font-light">${note.content}</p>
+          </div>
+          <div class="pt-3 border-t border-champagne/30 text-[11px] text-charcoal-muted flex items-center gap-1.5">
+            <i class="ph ph-map-pin text-gold"></i>
+            <span>${note.room}</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function openAddNoteModal() {
+      document.getElementById('addNoteModal').classList.remove('hidden');
+      document.getElementById('addNoteModal').classList.add('flex');
+    }
+    function closeAddNoteModal() {
+      document.getElementById('addNoteModal').classList.add('hidden');
+      document.getElementById('addNoteModal').classList.remove('flex');
+    }
+    function handleCreateNote(e) {
+      e.preventDefault();
+      const title = document.getElementById('noteTitle').value.trim();
+      const room = document.getElementById('noteRoom').value.trim();
+      const content = document.getElementById('noteContent').value.trim();
+
+      appState.notes.unshift({
+        id: 'note-' + Date.now(),
+        title,
+        room,
+        content
+      });
+
+      e.target.reset();
+      closeAddNoteModal();
+      saveState();
+      renderNotes();
+      showToast('Inspiration preserved');
+    }
+
+    function deleteNote(id) {
+      appState.notes = appState.notes.filter(n => n.id !== id);
+      saveState();
+      renderNotes();
+    }
+
+    /* =========================================================
+       GLOBAL COUNTERS & PROGRESS RING
+    ========================================================= */
+    function updateGlobalCounters() {
+      // 1. Total rooms
+      const totalRoomsEl = document.getElementById('statTotalRooms');
+      if (totalRoomsEl) totalRoomsEl.textContent = appState.rooms.length;
+
+      // 2. Count all tasks
+      let totalTasks = 0;
+      let completedTasks = 0;
+
+      appState.rooms.forEach(r => {
+        r.tasks.forEach(t => {
+          totalTasks++;
+          if (t.completed) completedTasks++;
+        });
+      });
+
+      // Add routines
+      appState.routines.forEach(r => {
+        totalTasks++;
+        if (r.completed) completedTasks++;
+      });
+
+      const remaining = Math.max(0, totalTasks - completedTasks);
+
+      const compEl = document.getElementById('statCompletedTasks');
+      if (compEl) compEl.textContent = completedTasks;
+
+      const remEl = document.getElementById('statRemainingTasks');
+      if (remEl) remEl.textContent = remaining;
+
+      // Overall percentage
+      const overallPercent = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 100;
+      const progEl = document.getElementById('statProgressPercent');
+      if (progEl) progEl.textContent = overallPercent + '%';
+
+      // SVG Ring
+      const ring = document.getElementById('svgProgressCircle');
+      if (ring) {
+        ring.setAttribute('stroke-dasharray', `${overallPercent}, 100`);
+      }
+    }
+
+    /* =========================================================
+       SEARCH ENGINE (GLOBAL)
+    ========================================================= */
+    const searchInput = document.getElementById('globalSearchInput');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        if (!query) {
+          renderRooms();
+          return;
+        }
+
+        // Filter visible rooms
+        const grid = document.getElementById('roomsGrid');
+        if (grid) {
+          const matched = appState.rooms.filter(r => 
+            r.name.toLowerCase().includes(query) || 
+            r.tasks.some(t => t.title.toLowerCase().includes(query))
+          );
+          grid.innerHTML = '';
+          matched.forEach(room => {
+            const percent = getRoomProgress(room);
+            const card = document.createElement('div');
+            card.className = "bg-cardWhite rounded-3xl overflow-hidden border border-champagne/40 shadow-lux p-5";
+            card.innerHTML = `
+              <h4 class="font-serif text-lg font-bold text-forest">${room.name}</h4>
+              <p class="text-xs text-charcoal-muted mt-1">Matched in search query</p>
+              <button onclick="openRoomModal('${room.id}')" class="mt-3 py-1.5 px-4 bg-forest text-ivory rounded-xl text-xs font-semibold">View Space</button>
+            `;
+            grid.appendChild(card);
+          });
+        }
+      });
+    }
+
+    /* =========================================================
+       INITIALIZATION
+    ========================================================= */
+    function renderAll() {
+      updateGlobalCounters();
+      renderRooms();
+      renderRoutines();
+      renderFurniturePlanner();
+      renderInventory();
+      renderShopping();
+      renderCalendar();
+      renderNotes();
+      initSplitSlider();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderAll();
+    });
+  </script>
+</body>
+</html>
